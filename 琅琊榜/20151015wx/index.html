@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+<head lang="zh-CN">
+    <meta charset="UTF-8">
+    <meta HTTP-EQUIV="pragma" CONTENT="no-cache">
+    <meta HTTP-EQUIV="Cache-Control" CONTENT="no-cache, must-revalidate">
+    <meta HTTP-EQUIV="expires" CONTENT="0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+    <meta http-equiv="Expires" content="-1" />
+    <meta http-equiv="pragram" content="no-cache" />
+
+    <title>触宝电话，电话免费打</title>
+	<style>
+	   *{margin:0;padding:0; }
+	    html , body{
+		    
+		    width : 100% ;
+		    height: 100%;
+			margin : 0 ;
+			padding : 0 ; 
+			top : 0 ;
+		font-family : "Microsoft Yahei";
+		   color : white ;
+		   font-size : 15px ;
+		}
+		.wrap{
+    	width: 100%;
+    	height: 50%;
+    	position: relative;
+        }
+        .phone{
+        	position: absolute;
+        	width: 70%;
+        	top:4%;
+          opacity: 0;
+          -webkit-animation: opa1 1s ease-out forwards;
+        }
+		.text{
+			position: absolute;
+			width: 40%;
+			left: 56%;
+			top:12%;
+      opacity: 0;
+      -webkit-animation: opa 0.6s linear 0.6s forwards;
+		}
+		#button{
+			position: relative;
+			width: 60%;
+			left: 20%;
+			margin-top:25%;
+      opacity: 0;
+      -webkit-animation: opa 1s ease-in 1.2s forwards;
+		}
+		p{
+			position: relative;
+			color: #333;
+			font-size: 16px;
+			line-height: 24px;
+			margin:8% 5%;
+			width: 90%;
+      opacity: 0;
+      -webkit-animation: opa 1s ease-in 1.2s forwards;
+		}
+    .text2{
+      position: relative;
+      width: 90%;
+      margin: 5% 5%;
+      opacity: 0;
+      -webkit-animation: opa 1s ease-in 1.2s forwards;
+    }
+    @-webkit-keyframes opa
+{
+from {
+  opacity: 0;
+}
+to {
+  opacity: 1;
+}
+}
+    @-webkit-keyframes opa1
+{
+from {
+  -webkit-transform: translate(0,150px);
+  opacity: 0;
+}
+to {
+  -webkit-transform: translate(0,0);
+  opacity: 1;
+}
+}
+	</style>
+	<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?176611d742fc32fed60e6914c3452378";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+    </script>  
+ </head>
+ 
+ <body>
+     <div class="wrap">
+     	<img src="images/phone.png" class="phone">
+     	<img src="images/text.png" class="text">
+     </div>	 
+     <img src="images/button.png" id="button">
+	    <p>在WiFi下选择“免费电话”可免费拨打任何大陆电话号段，不收取任何漫游费用，人在国外也可免费打回国。</p>
+      <img src="images/text2.jpg" class="text2">
+ </body>
+ <script>
+ window.ua = detectUA();
+
+    function detectUA() {
+        var u = navigator.userAgent;
+        return {
+            weixin: u.match(/MicroMessenger/i) || window.WeixinJSBridge != undefined,
+            ios : !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+            android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1 ,
+            mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+            iPhone: u.indexOf('iPhone') > -1 , //是否为iPhone或者QQHD浏览器
+        }
+    }
+ _hmt.push(['_trackEvent', "20151015wx", "20151015wxOpen"]);  
+     document.getElementById("button").onclick = function(){
+     	if (ua.ios){
+     	_hmt.push(['_trackEvent', "20151015wx", "20151015Ios"]);
+	     window.location.href = "http://dialer.cdn.cootekservice.com/web/external/laststep/index.html?code=mkt_yoyo_langyabangad_20151014"; 
+	 }
+	 else {
+     	_hmt.push(['_trackEvent', "20151015wx", "20151015xwAnd"]);
+	     window.location.href = "http://dialer.cdn.cootekservice.com/web/external/laststep/index.html?code=mkt_yoyo_langyabangad_20151014"; 
+	 }
+	}
+ </script>
+ 
+</html>

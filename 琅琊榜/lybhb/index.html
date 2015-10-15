@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+	<META HTTP-EQUIV="Pragma" CONTENT="no-cache"> 
+    <META HTTP-EQUIV="Cache-Control" CONTENT="no-cache"> 
+    <META HTTP-EQUIV="Expires" CONTENT="0"> 
+    <title>新用户专享  全球话费红包</title>
+	<link href="css/style.css" rel="stylesheet">
+	<script type="text/javascript" src="js/sta.js"></script>
+</head>
+<body>
+
+<div class="mainContent">
+     <div id="topBanner">
+      <div id="bannerLeft">
+	     <img id="head" src="img2/icon2.png"/>
+	  </div>
+	  <div id="bannerRight">
+	     <p>钱太多，求帮着花。几百块的话费红包而已，别客气，拿去花~</p>
+	  </div>
+    </div>
+	<div class="centralContent">
+      <img id="redImg" src="img/redPack.png"/>
+	  <div class="topText">
+	     <p>新用户专享 全球话费红包</p>
+	  </div>
+	  
+	  <div class="operateFields">
+	       <input id="q4" type="tel" placeholder="请输入手机号" name="zhuang"  maxlength=11/>
+		   <span style="display : block ; text-align : center ; position : relative ; color : white ; font-size : 0.8em ;"></span>
+		   <div class="showText">
+	         <p>输入手机号，分钟数自动放入触宝账户</p>
+	      </div>
+		  <div id="openBtn" class="openBtn linear">
+	        <p>打开红包</p>
+	      </div>
+	  </div>
+	
+	  <div id="middleBanner">
+	     <img id="bannerImg" src="img/redHowNormal.png"/>
+	     
+	  </div>
+  </div>
+  <div class="rule">
+    <div class="line left"></div>
+    <p>活动说明</p>
+	<div class="line right"></div>
+	<div class="clear"></div>
+	<div class="ruleText">
+	    <p>1. 注册成为触宝电话用户后，即使抽掉手机卡，也可以用注册手机号给大陆的手机、座机在WiFi下免费打电话。目前仅支持拨打国内电话号码，但不限号码主人是否在国内。</p>
+		<p>2. 触宝电话免费电话功能在WiFi下不耗任何流量。3/4G下通话每分钟消耗约300K；回拨模式（流量消耗约30K），通话中是否收费与运营商套餐接听是否免费相关。3/4G流量费和手机月租费由运营商收取。</p>
+    </div>
+</div>
+  
+<div class="footer">
+    <p>本活动最终解释权归触宝所有</p>
+</div>
+</div>
+
+</body>
+<script type="text/javascript" src="js/decode.js"></script>
+<script type="text/javascript" src="js/zepto.min.js"></script>
+		<script type="text/javascript" src="js/json2.js"></script>
+		<script type="text/javascript" src="js/verify.js"></script>
+		<script type="text/javascript" src="js/stois.js"></script>
+<script>
+	   function getParameterByName(name) {
+   			 		name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    				var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        		results = regex.exec(location.search);
+    				return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+	   }
+				var data = getParameterByName("u");
+				if( data ){
+				   var user = JSON.parse(Base64.decode(data));
+	               var headImg = user.headimgurl ;
+	                document.getElementById("head").src = headImg ;
+				}
+var bonus_id = "nlghijklmnofg_2_94";
+var sign = "39f830415d96827a2011c3e0c0f02380";
+window.onload = function(){
+     _hmt.push(['_trackEvent', "zhuang", "zhuangIn"]);	
+	 validate.phone("#q4", "手机号码格式不正确");
+	 $('#q4').val("");
+     $("openBtn").focus(function(){this.blur()});
+	 
+	$('#openBtn').on('tap', function(){
+		$('#openBtn').addClass('active');
+		setTimeout( function(){
+			
+			$('#openBtn').removeClass('active');
+		//	window.location.href = "gain.html";
+		}, 100)
+		
+		
+	});
+	$('#middleBanner').on('tap',function(){
+		var src = $('#bannerImg')[0].src;
+		$("#bannerImg").attr('src','img/redHowClick.png'); 
+		setTimeout( function(){
+			
+			$('#bannerImg').attr('src',src); 
+			
+		}, 100)
+	});
+		
+		$('#openBtn').on('click' , function(){
+			
+			if( $('#q4').hasClass("pass") ){
+			  _hmt.push(['_trackEvent', "zhuang", "zhuangClickGetButton"]);	
+			   var tmp =   $('#q4').val() ;
+			  
+			  $.ajax({
+                //url: 'http://121.52.235.231:40401/voip/get_bonus', //for test
+			    url: 'http://ws2.cootekservice.com/voip/get_bonus',
+                type: 'post',
+                data: '{"bonus_id":"'+bonus_id+'","sign":"'+sign+'","phone":"'+$('#q4').val()+'"}',
+                dataType: 'json',
+                success: function (data) {
+				    var me =  JSON.stringify(data);
+					//alert(me);
+				    $('#q4').val("");	
+                    if(data.result_code==2000){
+					   _hmt.push(['_trackEvent', "zhuang", "zhuangGain"]);
+					   console.log("gain");
+                        window.location.href = "gain.html?phone="+tmp;
+                    }else{
+                        if(data.result_code==4312){
+						        _hmt.push(['_trackEvent', "zhuang", "zhuangLose"]);
+								 console.log("already");
+								 window.location.href = "already.html";
+                        	//	document.getElementById("lose").style.display = "block" ;
+                        }else{
+                        		if (data.result_code==4313){
+								      _hmt.push(['_trackEvent', "zhuang", "zhuangOut"]);
+									   console.log("out");
+									   window.location.href = "expire.html"
+									//  document.getElementById("expire").style.display = "block" ;
+                        		}else if(data.result_code==4314){
+                        			//  document.getElementById("wrong").style.display = "block" ;
+									   console.log("wrong zhuang");
+								}else if(data.result_code==4316){
+								         _hmt.push(['_trackEvent', "zhuang", "zhuangOldGuy"]);
+                                         console.log("old");
+									     window.location.href = "old.html";
+                        		}else{
+									   console.log("fail");
+								       _hmt.push(['_trackEvent', "zhuang", "zhuangNetworkFail"]);
+									   window.location.href = "lose.html";
+                        			//	document.getElementById("networkFail").style.display = "block" ;
+                        		}  
+                        }
+                    }
+                }
+				
+            })
+			}
+			
+			$('#q4').removeClass("pass");
+		   
+		});
+	
+}
+
+
+</script>
+</html>

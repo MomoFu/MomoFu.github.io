@@ -1,0 +1,416 @@
+﻿@charset "UTF-8";
+html,body{width: 100%;}
+img{display: block ; margin: 0 ;padding : 0 ;}
+html,body,div,span,h1,h2,h3,h4,h5,h6,p,a,em,img,input,q,b,dl,dt,dd,ol,ul,li,label,canvas{ margin:0; padding:0; border:0; outline:0; }
+a{
+text-decoration:none;
+ -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+}
+body{ 
+   background-color:#ffd872; 
+   font-size-adjust: none; 
+   text-align: center; 
+   margin: 0 auto; 
+   font-family:'Microsoft YaHei',arial,sans-serif,'Droid Sans Fallback'; 
+}
+
+
+#backgroundTop{
+   width: 100% ;
+}
+#topBanner{
+    position : relative ;
+    padding-top: 40px ;
+	margin-left:20px ;
+	margin-right : 20px ;
+	
+}
+#topBanner img{
+	width : 60% ;
+	margin : auto ;
+	
+	
+}
+
+#topBanner p{
+	margin-top : 8px ;
+	color : #ffd872;
+}
+#bannerLeft{
+    position : relative ;
+	float: left ;
+    width: 64px ;
+	height : 64px ;
+	border:2px solid rgba(0,0,0,0.3);
+    border-radius:33px;
+	overflow: hidden;
+}
+#bannerLeft img{
+   width : 100% ;
+}
+#bannerRight{
+    position: relative ;
+	border-radius:0 10px 10px 10px ;  
+	background-color : rgba(0,0,0,0.3);
+	margin-left: 84px ;
+	padding : 8px 8px 8px 12px ; 
+}
+
+#bannerRight:before{  
+    position:absolute;  
+    content:"\00a0";  
+    width:0px;  
+    height:0px; 
+    border-top: 12px solid rgba(0,0,0,0.3) ;
+    border-left: 12px solid transparent; 	
+    top: 0px ;
+    left:-12px;  
+}  
+
+#bannerRight p{
+    
+    color : #ffd872 ;
+	text-align : left ;
+	line-height: 20px ;
+	font-size : 14px ;
+}
+
+.mainContent{
+    position : relative ;
+     background-image: url(../img3/background.png);
+	background-size : 100% auto ;
+	background-repeat : no-repeat ;
+	background-position : top top ;
+    width: 100% ;
+}
+
+.centralContent{
+    position : relative ;
+	margin-top : 100px ;
+}
+
+.redBackContainer{
+    
+    width : 98% ;
+	margin-left:1% ;
+}
+
+#redBack{
+    width : 100%  ;
+}
+
+.card{
+    position : absolute ;
+	z-index : 2 ;
+	top: -18%  ;
+	width  : 84% ;
+	left : 8% ;
+	background-color : #fff6d9 ;
+	border: 0px solid  ;
+	border-radius : 8px ;
+	padding-top : 20px  ;
+	padding-bottom : 30px ;
+}
+
+.card h1{
+    color : #e84c3d ;
+	font-size : 36px ;
+	line-height : 54px ;
+}
+.card h3{
+    color : #6f440c ;
+	font-size : 24px ;
+	font-weight : normal ;
+}
+
+.textBox{
+    width : 82% ;
+	margin-left : 9% ;
+	margin-top : 10px ;
+	padding-top: 10px ;
+	border-top: 1px dashed #dbc88c ;
+	padding-bottom : 100px ;
+
+}
+
+.specialBox{
+    width : 82% ;
+	margin-left : 9% ;
+	margin-top : 30px ;
+	
+	border-top: 1px dashed #dbc88c ;
+	padding-bottom : 100px ;
+}
+
+.card p{
+   text-align : left ;
+   color : #6f440c ;
+   font-size : 14px ;
+}
+
+.blue {
+    color : #2195e6 ;
+}
+
+.showFields{
+    position : absolute  ;
+	z-index : 3 ;
+	top : 128px  ;
+    width : 98% ;
+	left : 1% ;
+}
+
+.showBox{
+    position : relative ;
+	width :100% ;
+}
+
+.redfront{
+ 
+   width : 100% ;
+}
+
+.redfront  img{
+   width : 100% ;
+}
+
+
+.showText{
+    margin-top : 12px ;
+	
+}
+.showText p{
+    color : #ffd872;
+	font-size: 14px ;
+	text-align : center ;
+}
+
+.openBtn{
+    position : absolute ;
+    top: 80px ;
+	width : 76%;
+	margin-left : 12%;
+	height : 58px ;
+	border: 2px solid #1b51aa ;
+	border-radius : 30px ;
+	
+}
+
+
+
+.openBtn p{
+    text-align : certer ;
+	margin-top : 16px ;
+	color : #ffffff ;
+	font-size : 20px ;
+}
+
+.tips{
+    position : absolute ;
+    top: 150px ;
+	width : 100% ;
+	
+}
+
+.tips p{
+   font-size : 14px ;
+   color : #70231b ;
+   text-align: center ;
+}
+
+.linear{ 
+
+background:-moz-linear-gradient(top,#44b8ff,#0074ce);/*火狐*/ 
+background:-webkit-gradient(linear, 0% 0%, 0% 100%,from(#44b8ff), to(#0074ce));/*谷歌*/ 
+background: -webkit-linear-gradient(top, #44b8ff, #0074ce);   /*Safari5.1 Chrome 10+*/
+background: -o-linear-gradient(top, #44b8ff, #0074ce);  /*Opera 11.10+*/
+
+} 
+
+.active{
+    background:-moz-linear-gradient(top,#0074ce,#44b8ff);/*火狐*/ 
+    background:-webkit-gradient(linear, 0% 0%, 0% 100%,from(#0074ce), to(#44b8ff));/*谷歌*/ 
+    background: -webkit-linear-gradient(top, #0074ce, #44b8ff);   /*Safari5.1 Chrome 10+*/
+    background: -o-linear-gradient(top, #0074ce, #44b8ff);  /*Opera 11.10+*/
+}
+
+#middleBanner{
+   position : absolute ;
+    z-index : 5 ;
+	width : 95% ;
+	left : 2.5% ;
+	bottom : 0 ;
+}
+#bannerImg{
+   width : 100% ;
+   
+}
+
+
+
+#bannerText{
+    position : absolute  ;
+	width : 90% ;
+	left: 5% ;
+	top : 0 ;
+    margin: 0; 
+	
+}
+
+#bannerText p{
+   font-size : 12px ;
+   margin-top: 6px ;
+   text-align : left ;
+   line-height: 20px ;
+   color : #ffd872 ;
+}
+
+#question{
+  display : inline-block ;
+   position : relative ;
+    width: 16px ;
+	top: 5px ;
+}
+
+.luck{
+    position : relative ;
+    width : 86% ;
+	text-align : center ;
+	margin-left : 7% ;
+	margin-top : 40px ;
+}
+.luck p{
+   display: inline ;
+   color : #7b2d1b;
+   font-size : 18px ;
+}
+
+
+.rule{
+    position : relative ;
+    width : 86% ;
+	text-align : center ;
+	margin-left : 7% ;
+	margin-top : 16px ;
+	padding-bottom : 20px ;
+}
+
+.rule p{
+   display: inline ;
+   color : #7b2d1b;
+   font-size : 18px ;
+}
+
+.sep{
+    width  : 100% ;
+	height : 1px ;
+	border-top : 1px solid #e3bd58 ;
+}
+
+.item{
+   width : 100% ;
+   margin-bottom : 16px ;
+   margin-top : 16px ;
+}
+
+.item p{
+    font-size : 14px ;
+}
+
+.friend{
+   width : 40px ;
+}
+
+.friend img{
+   width : 100% ;
+}
+
+.info{
+   position: relative;
+   float : left ;
+   margin-left : 8px ;
+}
+
+.info p{
+   display: block ;
+   text-align : left ;
+}
+
+.nick p{
+    color : #7b2d1b;
+}
+
+.intro p{
+    color : #e84c3d ;
+	text-align : left ;
+}
+
+.prize p{
+    color : #e84c3d ;
+	font-size : 20px ;
+	line-height : 36px ;
+}
+
+.line{
+    border-top: 1px solid #e84c3d;
+	width : 26% ;
+	height : 20px ;
+	margin-top: 10px ;
+}
+.left{
+    position : relative ;
+	float : left ;
+
+}
+.right{
+    position : relative ;
+	float : right ;
+
+}
+.clear{clear:both; }
+
+.ruleText{
+    margin-top : 10px ;
+}
+
+.ruleText p{
+    display: block ;
+	color: #8e5a16 ;
+	font-size: 14px ;
+	text-align : left ;
+}
+.footer{
+	position : relative ;
+	margin-top : 60px ;
+    background-color: #eabf4e ;
+	padding: 12px 0 ;
+}
+.blue{
+	color : #44b8ff ;
+}
+
+.footer p{
+    text-align : center ;
+	font-size : 14px ;
+	color : #bb6530 ;
+}
+ .red{
+    color : #e84c3d ;
+ }
+ 
+ .blank{
+    width : 100% ;
+	margin-top : 20px ;
+ }
+ 
+ .thisContainer{
+     position : absolute ;
+	 width : 100% ;
+	 top : 0 ;
+ }
+ 
+
+
+
