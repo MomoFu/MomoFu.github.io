@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+	<META HTTP-EQUIV="Pragma" CONTENT="no-cache"> 
+    <META HTTP-EQUIV="Cache-Control" CONTENT="no-cache"> 
+    <META HTTP-EQUIV="Expires" CONTENT="0"> 
+    <title>棉花糖爱旅行粉丝专属红包</title>
+	<link href="css/style.css" rel="stylesheet">
+	<script type="text/javascript" src="js/sta.js"></script>
+</head>
+<body>
+
+<div class="mainContent">
+    <div id="topBanner">
+	  <img id="logo" src="img/logo.png"/>
+      <img src="img/title_1.png"/>
+    </div>
+	<div class="centralContent">
+      <img id="redImg" src="img/redPack.png"/>
+	  <div class="operateFields">
+	       <input id="q4" type="tel" placeholder="请输入手机号" name="sugar"  maxlength=11/>
+		   <span style="display : block ; text-align : center ; position : relative ; color : white ; font-size : 0.8em ;"></span>
+		   <div class="showText">
+	         <p>输入手机号，分钟数自动放入触宝账户</p>
+	      </div>
+		  <div id="openBtn" class="openBtn linear">
+	        <p>打开红包</p>
+	      </div>
+	  </div>
+	
+	  <div id="middleBanner">
+	     <img id="bannerImg" src="img/redHowNormal.png"/>
+	     
+	  </div>
+  </div>
+  <div class="rule">
+    <div class="line left"></div>
+    <p>活动规则</p>
+	<div class="line right"></div>
+	<div class="clear"></div>
+	<div class="ruleText">
+	    <p>1、同一话费红包同一手机号仅能领1次，但可以领不同的红包，红包金额可以累加，<span class="red">红包当月有效，请尽快使用；</span></p>
+		<p>2、活动中领到的话费红包将会兑换成等值的免费通话时长放到您的触宝电话账户，1分钟内到账；</p>
+		<p>3、新用户现在下载注册触宝电话，可获得500分钟的新人奖励，<span class="red">永久有效</span>，使用触宝电话每月还可再得400分钟。</p>
+    </div>
+</div>
+  
+<div class="footer">
+    <p>本活动最终解释权归触宝所有</p>
+</div>
+</div>
+
+</body>
+<script type="text/javascript" src="js/zepto.min.js"></script>
+		<script type="text/javascript" src="js/json2.js"></script>
+		<script type="text/javascript" src="js/verify.js"></script>
+		<script type="text/javascript" src="js/stois.js"></script>
+<script>
+var bonus_id = "nlghijklmnofg_2_90";
+var sign = "c36babd0e38d861c22c7df5e85cda0f5";
+window.onload = function(){
+     _hmt.push(['_trackEvent', "sugar", "sugarIn"]);	
+	 validate.phone("#q4", "手机号码格式不正确");
+	 $('#q4').val("");
+     $("openBtn").focus(function(){this.blur()});
+	 
+	$('#openBtn').on('tap', function(){
+		$('#openBtn').addClass('active');
+		setTimeout( function(){
+			
+			$('#openBtn').removeClass('active');
+		//	window.location.href = "gain.html";
+		}, 100)
+		
+		
+	});
+	$('#middleBanner').on('tap',function(){
+		var src = $('#bannerImg')[0].src;
+		$("#bannerImg").attr('src','img/redHowClick.png'); 
+		setTimeout( function(){
+			
+			$('#bannerImg').attr('src',src); 
+			
+		}, 100)
+	});
+		
+		$('#openBtn').on('click' , function(){
+			
+			if( $('#q4').hasClass("pass") ){
+			  _hmt.push(['_trackEvent', "sugar", "sugarClickGetButton"]);	
+			   var tmp =   $('#q4').val() ;
+			  
+			  $.ajax({
+                //url: 'http://121.52.235.231:40401/voip/get_bonus', //for test
+			    url: 'http://ws2.cootekservice.com/voip/get_bonus',
+                type: 'post',
+                data: '{"bonus_id":"'+bonus_id+'","sign":"'+sign+'","phone":"'+$('#q4').val()+'"}',
+                dataType: 'text',
+                success: function (data) {
+				    $('#q4').val("");	
+                    if(data.result_code==2000){
+					   _hmt.push(['_trackEvent', "sugar", "sugarGain"]);
+					   console.log("gain");
+                        window.location.href = "gain.html?phone="+tmp;
+                    }else{
+                        if(data.result_code==4312){
+						        _hmt.push(['_trackEvent', "sugar", "sugarLose"]);
+								 console.log("already");
+								 window.location.href = "already.html";
+                        	//	document.getElementById("lose").style.display = "block" ;
+                        }else{
+                        		if (data.result_code==4313){
+								      _hmt.push(['_trackEvent', "sugar", "sugarOut"]);
+									   console.log("out");
+									   window.location.href = "expire.html"
+									//  document.getElementById("expire").style.display = "block" ;
+                        		}else if(data.result_code==4314){
+                        			//  document.getElementById("wrong").style.display = "block" ;
+									   console.log("wrong sugar");
+								}else if(data.result_code==4316){
+								         _hmt.push(['_trackEvent', "sugar", "sugarOldGuy"]);
+                                         console.log("old");
+									     window.location.href = "old.html";
+                        		}else{
+									   console.log("fail");
+								       _hmt.push(['_trackEvent', "sugar", "sugarNetworkFail"]);
+									   window.location.href = "lose.html";
+                        			//	document.getElementById("networkFail").style.display = "block" ;
+                        		}  
+                        }
+                    }
+                }
+				
+            })
+			}
+			
+			$('#q4').removeClass("pass");
+		   
+		});
+	
+}
+
+
+</script>
+</html>
