@@ -28,7 +28,6 @@ th, td { /* table elements 表格元素 */
 /* 重置列表元素 */
 ul, ol { list-style: none; }
 
-img{display : block ;}
 
 *{-webkit-tap-highlight-color: transparent; -webkit-appearance: none;}
 
@@ -1101,91 +1100,68 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
 }
 /*# sourceMappingURL=bootstrap.css.map */
 
-.footer{
-    font-size : 14px ;
-	color : #c1c1c1 ;
-    width:100%;
-    padding-top: 60px;
-     padding-bottom: 60px;
-    background:#373941;
-    
-    text-align:center;
-   }
-/* 
-@media screen and (min-device-width: 1400px) {
-	   .footer{
-       margin-top : 300px ;
-   }
-	   
+.footer {
+  position: relative;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 100px;
+  font-size: 14px ;
+  background-color: #f2f2f2;
 }
-*/ 
-   .menu{
-	   width : 50% ;
-	   margin-left : 25% ;
-	   
-   }
-   
-   .footer p{
-	   margin-top : 20px ;
-   }
-   
-   div.menu ul
-{
-    list-style:none; /* 去掉ul前面的符号 */
-    margin: 0px; /* 与外界元素的距离为0 */
-    padding: 0px; /* 与内部元素的距离为0 */
-    width: auto; /* 宽度根据元素内容调整 */
+.footer p {
+  line-height: 30px;
+  padding: 0;
+  margin: 0;
+  color: #666;
+  text-align: center;
 }
-/* 所有class为menu的div中的ul中的li样式 */
-div.menu ul li
-{
-    list-style-type: none;
-     display: inline;
-	 position : relative;
-	 
+.footer ul {
+  margin-bottom: 0;
+  text-align: center;
 }
-/* 所有class为menu的div中的ul中的a样式(包括尚未点击的和点击过的样式) */
-div.menu ul li a, div.menu ul li a:visited
-{
-  
-    color: #dde4ec; /* 文字颜色 */
-
-   
-    text-decoration: none; /* 不显示超链接下划线 */
-    white-space: nowrap; /* 对于文本内的空白处，不会换行，文本会在在同一行上继续，直到遇到 <br> 标签为止。 */
+.footer ul li {
+  line-height:60px;
+  display: inline-block;
 }
-/* 所有class为menu的div中的ul中的a样式(鼠标移动到元素中的样式) */
-div.menu ul li a:hover
-{
-    
-    color: #465c71; /* 文字颜色 */
-    text-decoration: none; /* 不显示超链接下划线 */
-}
-/* 所有class为menu的div中的ul中的a样式(鼠标点击元素时的样式) */
-div.menu ul li a:active
-{
-  
-    color: #cfdbe6; /* 文字颜色 */
-    text-decoration: none; /* 不显示超链接下划线 */
+.footer ul li a {
+  padding: 0 0.4444em 0 0;
+  margin-right: 2px;
+  border-right: 1px solid #e3e3e3;
+  white-space: nowrap;
+  color: #666;
 }
 
-div.menu ul li a img{
-	display : inline;
+#normal li a{
+    line-height: 60px;
+} 
+
+.footer ul li a img {
+  width: 23px;
 }
-
-
-
+.footer ul li a:hover {
+  text-decoration: underline;
+}
+.footer ul .weixin a {
+  position: absolute;
+  top: 0;
+  border-right: 0px;
+  display: block;
+  width: 23px;
+  height: 23px;
+  cursor: pointer;
+}
 .footer ul .weixin a div {
-    width: 128px;
-    height: 156px;
-	display : none ;
-    background: url("../images/weixin_QRcode.png") no-repeat;
-    background-size: contain;
-    background-position: center;
-    
-    position: absolute;
-    z-index: 50;
-    bottom: 30px;
-    left: -55px;
+  width: 128px;
+  height: 156px;
+  background: url("../images/weixin_QRcode.png") no-repeat;
+  background-size: contain;
+  background-position: center ;
+  display: none;
+  position: absolute;
+  z-index: 50;
+  bottom: 6px;
+  left: -55px;
 }
-
+.footer ul .weixin a:hover div {
+  display: block;
+}
