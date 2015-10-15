@@ -191,8 +191,8 @@ input:-webkit-autofill {background-color:#ffffff !important;background-image: no
 .usercontext .pg .pg-prev:before{border: 2px solid #cdcdcd;border-right:none;border-top:none;top: 8px;left: 10px;}
 .usercontext .pg .disabled,.usercontext .pg .disabled:before,.usercontext .pg .disabled:hover:before,.usercontext .pg .disabled:hover{color:#dddddd;border-color:#dddddd;background:#f6f6f6;}
 
-.overlay{ display : none ; position : absolute ; top : 0 ; left : 0 ; width : 100% ;  z-index : 2000 ; background-color : rgba(0,0,0,0.3);}
-.overlay .showForm{width : 500px ; margin: auto ;margin-top : 200px ; background-color : white ; padding-top: 40px ; padding-bottom: 40px ;} 
+.overlay{ display : none ; position : fixed  ; top : 0 ; left : 0 ; width : 100% ;  z-index : 2000 ; background-color : rgba(0,0,0,0.6);}
+.overlay .showForm{ display : none ;  width : 500px ; margin: auto ;margin-top : 200px ; background-color : white ; padding-top: 40px ; padding-bottom: 40px ;} 
 .overlay .showForm>p{
 	line-height : 30px ;
 	text-align: center ;

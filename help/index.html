@@ -164,11 +164,19 @@
 
 <div class="overlay">
    <div class="showForm">
+       <p>您的问题是否解决？</p>
+	   <div class="overlayGroup">
+	       <div class="show showoff"><p>已解决</p></div>
+		   <div id="unfinished" class="show showon"><p>未解决</p></div>
+		   <div class="clear"></div>
+	   </div>
+   </div>
+   <div class="showForm">
        <p>查看其他类别问题来解决？</p>
 	   <p>或去触宝贴吧反馈您的问题，我们会在2个工作日内答复</p>
 	   <div class="overlayGroup">
 	       <div class="show showoff"><p>查看其他问题</p></div>
-		   <div class="show showon"><p>反馈问题</p></div>
+		   <div id="goTie" class="show showon"><p>反馈问题</p></div>
 		   <div class="clear"></div>
 	   </div>
    </div>
@@ -219,13 +227,19 @@ $(function(){
 	    $('.overlay').hide();
 	})
 	
-	$('.showon').on('click', function(){
+	$('#unfinished').on('click', function(){
+	   $('.overlay .showForm:eq(0)').hide();
+	   $('.overlay .showForm:eq(1)').css("display", "block");
+	})
+	
+	$('#goTie').on('click', function(){
 	   window.location.href = "http://tieba.baidu.com/f?kw=%B4%A5%B1%A6%B5%E7%BB%B0&fr=ala0";
 	})
 	
 	$('.article').on('click', function(e){
 	    //console.log("me");
 		$('.overlay').css("display", "block");
+		$('.overlay .showForm:eq(0)').css("display", "block");
 		$('.overlay').height($(document.body).height());
 	})
 });
