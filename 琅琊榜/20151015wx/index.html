@@ -39,6 +39,7 @@
         	width: 70%;
         	top:4%;
           opacity: 0;
+		  animation: opa1 1s ease-out forwards;
           -webkit-animation: opa1 1s ease-out forwards;
         }
 		.text{
@@ -47,6 +48,7 @@
 			left: 67%;
 			top:8%;
       opacity: 0;
+	  animation: opa 0.6s linear 0.6s forwards;
       -webkit-animation: opa 0.6s linear 0.6s forwards;
 		}
 		#button{
@@ -55,6 +57,7 @@
 			left: 20%;
 			margin-top:25%;
       opacity: 0;
+	  animation: opa 1s ease-in 1.2s forwards;
       -webkit-animation: opa 1s ease-in 1.2s forwards;
 		}
 		p{
@@ -65,6 +68,7 @@
 			margin:8% 5%;
 			width: 90%;
       opacity: 0;
+	  animation: opa 1s ease-in 1.2s forwards;
       -webkit-animation: opa 1s ease-in 1.2s forwards;
 		}
     .text2{
@@ -72,8 +76,19 @@
       width: 90%;
       margin: 5% 5%;
       opacity: 0;
+	  animation: opa 1s ease-in 1.2s forwards;
       -webkit-animation: opa 1s ease-in 1.2s forwards;
     }
+	
+	@keyframes opa
+{
+from {
+  opacity: 0;
+}
+to {
+  opacity: 1;
+}
+}
     @-webkit-keyframes opa
 {
 from {
@@ -83,9 +98,24 @@ to {
   opacity: 1;
 }
 }
+
+@keyframes opa1
+{
+from {
+  
+  transform: translate(0,150px);
+  opacity: 0;
+}
+to {
+  transform: translate(0,0);
+  opacity: 1;
+}
+}
+
     @-webkit-keyframes opa1
 {
 from {
+  
   -webkit-transform: translate(0,150px);
   opacity: 0;
 }
