@@ -28,6 +28,7 @@
 		font-family : "Microsoft Yahei";
 		   color : white ;
 		   font-size : 15px ;
+		   
 		}
 		.wrap{
     	width: 100%;
@@ -37,19 +38,35 @@
         .phone{
         	position: absolute;
         	width: 70%;
-        	top:4%;
+        	top:140px;
           opacity: 0;
-		  animation: opa1 1s ease-out forwards;
-          -webkit-animation: opa1 1s ease-out forwards;
+		  transition: all 1s ease 0.2s ;
+          -webkit-transition: all 1s ease 0.2s ;
+		  -webkit-backface-visibility: hidden;
+-moz-backface-visibility: hidden;
+-ms-backface-visibility: hidden;
+backface-visibility: hidden;
+
+-webkit-perspective: 1000;
+-moz-perspective: 1000;
+-ms-perspective: 1000;
+perspective: 1000;
         }
+		.phone.on{
+		    transform: translate3d(0, -120px,0 );
+		   -webkit-transform: translate3d(0, -120px,0);
+			opacity : 1 ;
+		}
 		.text{
 			position: absolute;
 			width: 26%;
 			left: 67%;
 			top:8%;
       opacity: 0;
-	  animation: opa 0.6s linear 0.6s forwards;
-      -webkit-animation: opa 0.6s linear 0.6s forwards;
+	  animation: opa 0.6s linear 0.6s ;
+      -webkit-animation: opa 0.6s linear 0.6s ;
+	  animation-fill-mode: forwards;
+	   -webkit-animation-fill-mode: forwards;
 		}
 		#button{
 			position: relative;
@@ -57,8 +74,10 @@
 			left: 20%;
 			margin-top:25%;
       opacity: 0;
-	  animation: opa 1s ease-in 1.2s forwards;
-      -webkit-animation: opa 1s ease-in 1.2s forwards;
+	  animation: opa 1s ease-in 1.2s ;
+      -webkit-animation: opa 1s ease-in 1.2s ;
+	  animation-fill-mode: forwards;
+	  -webkit-animation-fill-mode: forwards;
 		}
 		p{
 			position: relative;
@@ -68,16 +87,20 @@
 			margin:8% 5%;
 			width: 90%;
       opacity: 0;
-	  animation: opa 1s ease-in 1.2s forwards;
-      -webkit-animation: opa 1s ease-in 1.2s forwards;
+	  animation: opa 1s ease-in 1.2s ;
+      -webkit-animation: opa 1s ease-in 1.2s ;
+	  animation-fill-mode: forwards;
+	   -webkit-animation-fill-mode: forwards;
 		}
     .text2{
       position: relative;
       width: 90%;
       margin: 5% 5%;
       opacity: 0;
-	  animation: opa 1s ease-in 1.2s forwards;
-      -webkit-animation: opa 1s ease-in 1.2s forwards;
+	  animation: opa 1s ease-in 1.2s ;
+      -webkit-animation: opa 1s ease-in 1.2s ;
+	  animation-fill-mode: forwards;
+	   -webkit-animation-fill-mode: forwards;
     }
 	
 	@keyframes opa
@@ -99,28 +122,18 @@ to {
 }
 }
 
-@keyframes opa1
-{
-from {
-  
-  transform: translate(0,150px);
-  opacity: 0;
-}
-to {
-  transform: translate(0,0);
-  opacity: 1;
-}
-}
+
 
     @-webkit-keyframes opa1
 {
 from {
   
-  -webkit-transform: translate(0,150px);
+  top : 160px ;
   opacity: 0;
 }
+
 to {
-  -webkit-transform: translate(0,0);
+ top: 20px ;
   opacity: 1;
 }
 }
@@ -138,7 +151,7 @@ var _hmt = _hmt || [];
  
  <body>
      <div class="wrap">
-     	<img src="images/phone.png" class="phone">
+     	<img src="images/phone.png" class="phone" id="phone">
      	<img src="images/text.png" class="text">
      </div>	 
      <img src="images/button.png" id="button">
@@ -146,6 +159,22 @@ var _hmt = _hmt || [];
       <img src="images/text2.jpg" class="text2">
  </body>
  <script>
+ 
+  function hasClass(obj, cls) {
+            return obj.className.match(new RegExp('(\\s|^)' + cls + '(\\s|$)'));
+        }
+
+  function addClass(obj, cls) {
+            if (!this.hasClass(obj, cls)) obj.className += " " + cls;
+  }
+  
+  var phone = document.getElementById("phone");
+  
+  setTimeout(function(){
+     addClass(phone, "on");
+  }, 1);
+  
+
  window.ua = detectUA();
 
     function detectUA() {
