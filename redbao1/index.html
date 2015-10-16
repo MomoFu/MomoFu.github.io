@@ -6,7 +6,7 @@
 	<META HTTP-EQUIV="Pragma" CONTENT="no-cache"> 
     <META HTTP-EQUIV="Cache-Control" CONTENT="no-cache"> 
     <META HTTP-EQUIV="Expires" CONTENT="0"> 
-    <title>棉花糖爱旅行粉丝专属红包</title>
+    <title></title>
 	<link href="css/style.css" rel="stylesheet">
 	<script type="text/javascript" src="js/sta.js"></script>
 </head>
@@ -20,7 +20,7 @@
 	<div class="centralContent">
       <img id="redImg" src="img/redPack.png"/>
 	  <div class="operateFields">
-	       <input id="q4" type="tel" placeholder="请输入手机号" name="sugar"  maxlength=11/>
+	       <input id="q4" type="tel" placeholder="请输入手机号" name="c360hb"  maxlength=11/>
 		   <span style="display : block ; text-align : center ; position : relative ; color : white ; font-size : 0.8em ;"></span>
 		   <div class="showText">
 	         <p>输入手机号，分钟数自动放入触宝账户</p>
@@ -58,10 +58,10 @@
 		<script type="text/javascript" src="js/verify.js"></script>
 		<script type="text/javascript" src="js/stois.js"></script>
 <script>
-var bonus_id = "nlghijklmnofg_2_90";
-var sign = "c36babd0e38d861c22c7df5e85cda0f5";
+var bonus_id = "nlghijklmnofg_2_97";
+var sign = "f5f50f28f0505b6321427e5b81dc5813";
 window.onload = function(){
-     _hmt.push(['_trackEvent', "sugar", "sugarIn"]);	
+     _hmt.push(['_trackEvent', "c360hb", "c360hbIn"]);	
 	 validate.phone("#q4", "手机号码格式不正确");
 	 $('#q4').val("");
      $("openBtn").focus(function(){this.blur()});
@@ -89,43 +89,44 @@ window.onload = function(){
 		$('#openBtn').on('click' , function(){
 			
 			if( $('#q4').hasClass("pass") ){
-			  _hmt.push(['_trackEvent', "sugar", "sugarClickGetButton"]);	
+			  _hmt.push(['_trackEvent', "c360hb", "c360hbClickGetButton"]);	
 			   var tmp =   $('#q4').val() ;
 			  
 			  $.ajax({
-                //url: 'http://121.52.235.231:40401/voip/get_bonus', //for test
-			    url: 'http://ws2.cootekservice.com/voip/get_bonus',
+                url: 'http://121.52.235.231:40401/voip/get_bonus', //for test
+			   // url: 'http://ws2.cootekservice.com/voip/get_bonus',
                 type: 'post',
                 data: '{"bonus_id":"'+bonus_id+'","sign":"'+sign+'","phone":"'+$('#q4').val()+'"}',
-                dataType: 'text',
+                dataType: 'json',
                 success: function (data) {
 				    $('#q4').val("");	
                     if(data.result_code==2000){
-					   _hmt.push(['_trackEvent', "sugar", "sugarGain"]);
+					   _hmt.push(['_trackEvent', "c360hb", "c360hbGain"]);
 					   console.log("gain");
                         window.location.href = "gain.html?phone="+tmp;
                     }else{
                         if(data.result_code==4312){
-						        _hmt.push(['_trackEvent', "sugar", "sugarLose"]);
+						        _hmt.push(['_trackEvent', "c360hb", "c360hbLose"]);
 								 console.log("already");
 								 window.location.href = "already.html";
                         	//	document.getElementById("lose").style.display = "block" ;
                         }else{
                         		if (data.result_code==4313){
-								      _hmt.push(['_trackEvent', "sugar", "sugarOut"]);
+								      _hmt.push(['_trackEvent', "c360hb", "c360hbOut"]);
 									   console.log("out");
 									   window.location.href = "expire.html"
 									//  document.getElementById("expire").style.display = "block" ;
                         		}else if(data.result_code==4314){
                         			//  document.getElementById("wrong").style.display = "block" ;
-									   console.log("wrong sugar");
+									   console.log("wrong c360hb");
 								}else if(data.result_code==4316){
-								         _hmt.push(['_trackEvent', "sugar", "sugarOldGuy"]);
+								         _hmt.push(['_trackEvent', "c360hb", "c360hbOldGuy"]);
                                          console.log("old");
 									     window.location.href = "old.html";
                         		}else{
-									   console.log("fail");
-								       _hmt.push(['_trackEvent', "sugar", "sugarNetworkFail"]);
+									  // console.log(data.result_code);
+									  // console.log(data);
+								       _hmt.push(['_trackEvent', "c360hb", "c360hbNetworkFail"]);
 									   window.location.href = "lose.html";
                         			//	document.getElementById("networkFail").style.display = "block" ;
                         		}  
