@@ -24,25 +24,25 @@
      });
 	 wx.ready(function(){
 	  wx.onMenuShareTimeline({
-		title: '有红包！速来！棉花糖&触宝电话十一福利大派送~', // 分享标题
-		link: 'http://www.chubao.cn/s/20150923mht/index.html', // 分享链接，必填
-		imgUrl: 'http://www.chubao.cn/s/20150923mht/img2/icon.png', // 分享图标，需替换为图片地址
+		title: '有红包！速来！Camera360&触宝电话福利大派送~', // 分享标题
+		link: 'http://www.chubao.cn/s/20151014hbindex.html', // 分享链接，必填
+		imgUrl: 'http://www.chubao.cn/s/20151014hb/img2/icon.png', // 分享图标，需替换为图片地址
 		success: function () {
-			_hmt.push(['_trackEvent', "sugar", "sugarShareToTimeLineSuccess"]);
+			_hmt.push(['_trackEvent', "c360hb", "c360hbShareToTimeLineSuccess"]);
 		},
 		cancel: function () {
 			// 用户取消分享后执行的回调函数，需要时选填
 		}
 	   });
 	  wx.onMenuShareAppMessage({
-		title: '有红包！速来！棉花糖&触宝电话十一福利大派送~', // 分享标题
-		desc: '出国打电话不花钱的秘密，戳！', // 分享描述
-		link: 'http://www.chubao.cn/s/20150923mht/index.html',
-		imgUrl: 'http://www.chubao.cn/s/20150923mht/img2/icon.png', // 分享图标，需替换为图片地址
+		title: '有红包！速来！Camera360&触宝电话福利大派送~', // 分享标题
+		desc: '红包福利大派送~', // 分享描述
+		link: 'http://www.chubao.cn/s/20151014hb/index.html',
+		imgUrl: 'http://www.chubao.cn/s/20151014hb/img2/icon.png', // 分享图标，需替换为图片地址
 		type: '', // 分享类型,music、video或link，不填默认为link
 		dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
 		success: function () {
-			 _hmt.push(['_trackEvent', "sugar", "sugarShareToFriendSuccess"]);
+			 _hmt.push(['_trackEvent', "c360hb", "c360hbShareToFriendSuccess"]);
 		},
 		cancel: function () {
 			// 用户取消分享后执行的回调函数，需要时选填
@@ -61,14 +61,14 @@
     $('#openBtn').on('click', function(){
 		console.log("me");
 		$('#openBtn').addClass('active');
-		_hmt.push(['_trackEvent', "sugar", "sugarClickDownloadApp"]);
+		_hmt.push(['_trackEvent', "c360hb", "c360hbClickDownloadApp"]);
 			var u = navigator.userAgent;
             var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1; //android终端或者uc浏览器
             var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
 			if( isAndroid  )
-				_hmt.push(['_trackEvent', "sugar", "sugarClickDownloadAppAndroid"]);
+				_hmt.push(['_trackEvent', "c360hb", "c360hbClickDownloadAppAndroid"]);
 			if( isiOS  )
-				_hmt.push(['_trackEvent', "sugar", "sugarClickDownloadAppIOS"]);
+				_hmt.push(['_trackEvent', "c360hb", "c360hbClickDownloadAppIOS"]);
 		
 		
 		
@@ -79,7 +79,7 @@
 			$('#openBtn').removeClass('active');
 			
 
-		    window.location.href = "http://dialer.cdn.cootekservice.com/web/external/laststep/index.html?code=mkt_le_mianhuatang_20150923";
+		    window.location.href = "http://dialer.cdn.cootekservice.com/web/external/laststep/index.html?code=mkt_xiaoya_camera360_20151020";
 		}, 100)
 		
 		
