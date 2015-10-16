@@ -28,7 +28,7 @@
 	  </div>
 	  
 	  <div class="operateFields">
-	       <input id="q4" type="tel" placeholder="请输入手机号" name="zhuang"  maxlength=11/>
+	       <input id="q4" type="tel" placeholder="请输入手机号" name="lybhb"  maxlength=11/>
 		   <span style="display : block ; text-align : center ; position : relative ; color : white ; font-size : 0.8em ;"></span>
 		   <div class="showText">
 	         <p>输入手机号，分钟数自动放入触宝账户</p>
@@ -78,10 +78,10 @@
 	               var headImg = user.headimgurl ;
 	                document.getElementById("head").src = headImg ;
 				}
-var bonus_id = "nlghijklmnofg_2_94";
-var sign = "39f830415d96827a2011c3e0c0f02380";
+var bonus_id = "nlghijklmnofg_2_98";
+var sign = "7175a25e1c41585273b5ebbda8975214";
 window.onload = function(){
-     _hmt.push(['_trackEvent', "zhuang", "zhuangIn"]);	
+     _hmt.push(['_trackEvent', "lybhb", "lybhbIn"]);	
 	 validate.phone("#q4", "手机号码格式不正确");
 	 $('#q4').val("");
      $("openBtn").focus(function(){this.blur()});
@@ -109,7 +109,7 @@ window.onload = function(){
 		$('#openBtn').on('click' , function(){
 			
 			if( $('#q4').hasClass("pass") ){
-			  _hmt.push(['_trackEvent', "zhuang", "zhuangClickGetButton"]);	
+			  _hmt.push(['_trackEvent', "lybhb", "lybhbClickGetButton"]);	
 			   var tmp =   $('#q4').val() ;
 			  
 			  $.ajax({
@@ -123,31 +123,31 @@ window.onload = function(){
 					//alert(me);
 				    $('#q4').val("");	
                     if(data.result_code==2000){
-					   _hmt.push(['_trackEvent', "zhuang", "zhuangGain"]);
+					   _hmt.push(['_trackEvent', "lybhb", "lybhbGain"]);
 					   console.log("gain");
                         window.location.href = "gain.html?phone="+tmp;
                     }else{
                         if(data.result_code==4312){
-						        _hmt.push(['_trackEvent', "zhuang", "zhuangLose"]);
+						        _hmt.push(['_trackEvent', "lybhb", "lybhbLose"]);
 								 console.log("already");
 								 window.location.href = "already.html";
                         	//	document.getElementById("lose").style.display = "block" ;
                         }else{
                         		if (data.result_code==4313){
-								      _hmt.push(['_trackEvent', "zhuang", "zhuangOut"]);
+								      _hmt.push(['_trackEvent', "lybhb", "lybhbOut"]);
 									   console.log("out");
 									   window.location.href = "expire.html"
 									//  document.getElementById("expire").style.display = "block" ;
                         		}else if(data.result_code==4314){
                         			//  document.getElementById("wrong").style.display = "block" ;
-									   console.log("wrong zhuang");
+									   console.log("wrong lybhb");
 								}else if(data.result_code==4316){
-								         _hmt.push(['_trackEvent', "zhuang", "zhuangOldGuy"]);
+								         _hmt.push(['_trackEvent', "lybhb", "lybhbOldGuy"]);
                                          console.log("old");
 									     window.location.href = "old.html";
                         		}else{
 									   console.log("fail");
-								       _hmt.push(['_trackEvent', "zhuang", "zhuangNetworkFail"]);
+								       _hmt.push(['_trackEvent', "lybhb", "lybhbNetworkFail"]);
 									   window.location.href = "lose.html";
                         			//	document.getElementById("networkFail").style.display = "block" ;
                         		}  
