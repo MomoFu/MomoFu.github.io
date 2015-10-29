@@ -93,8 +93,8 @@ window.onload = function(){
 			   var tmp =   $('#q4').val() ;
 			  
 			  $.ajax({
-                url: 'http://121.52.235.231:40401/voip/get_bonus', //for test
-			   // url: 'http://ws2.cootekservice.com/voip/get_bonus',
+                //url: 'http://121.52.235.231:40401/voip/get_bonus', //for test
+			   url: 'http://ws2.cootekservice.com/voip/get_bonus',
                 type: 'post',
                 data: '{"bonus_id":"'+bonus_id+'","sign":"'+sign+'","phone":"'+$('#q4').val()+'"}',
                 dataType: 'json',

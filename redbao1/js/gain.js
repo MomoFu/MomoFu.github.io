@@ -25,7 +25,7 @@
 	 wx.ready(function(){
 	  wx.onMenuShareTimeline({
 		title: '有红包！速来！Camera360&触宝电话福利大派送~', // 分享标题
-		link: 'http://www.chubao.cn/s/20151014hbindex.html', // 分享链接，必填
+		link: 'http://www.chubao.cn/s/20151014hb/index.html', // 分享链接，必填
 		imgUrl: 'http://www.chubao.cn/s/20151014hb/img2/icon.png', // 分享图标，需替换为图片地址
 		success: function () {
 			_hmt.push(['_trackEvent', "c360hb", "c360hbShareToTimeLineSuccess"]);
