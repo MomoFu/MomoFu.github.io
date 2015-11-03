@@ -5,7 +5,7 @@
     $.getJSON('//wx.chubao.cn/getwxconf?url='+myUrl+'&callback=?', function(remoteData){
 	   //向服务器发送请求，获得signature
 	 wx.config({
-	    debug: true, // 开启或关闭调试模式,调用的所有api的返回值会在客户端alert出来
+	    debug: false, // 开启或关闭调试模式,调用的所有api的返回值会在客户端alert出来
 	    appId: remoteData.appId, // 必填，公众号的唯一标识
 	    timestamp: remoteData.timestamp, // 必填，生成签名的时间戳
 	    nonceStr: remoteData.nonceStr, // 必填，生成签名的随机串
