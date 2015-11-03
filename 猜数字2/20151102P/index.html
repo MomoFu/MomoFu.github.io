@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>猜中谜底就有红包拿</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <meta http-equiv="Expires" content="-1"/>
+    <meta http-equiv="pragram" content="no-cache"/>
+    <meta charset="utf-8"/>
+    <style type="text/css">
+
+        * {
+            padding: 0;
+            margin: 0;
+            font-family: "Microsoft YaHei" ! important;
+        }
+
+        html, body {
+            height: 100%;
+            width: 100%;
+            background: url(images/bg.jpg) no-repeat;
+            background-size: 100% 100%;
+        }
+
+        div, p, h1, h2 {
+            -webkit-box-sizing: border-box;
+        }
+
+        img {
+            display: block;
+            width: 100%;
+        }
+        #part1{
+             position: absolute;
+             width: 100%;
+             height: 100%;
+             display:block;
+        }
+        #part2{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: none;
+        }
+        .wrap{
+            width: 100%;
+            padding-top:240px;
+            position: absolute;
+        }
+        .title{
+            width: 90%;
+            position: absolute;
+            left: 7%;
+            top: 3%;
+            opacity: 0;
+            -webkit-animation: animation_op 1s linear 0.5s forwards;
+        }
+        .example{
+            position: absolute;
+            width: 88%;
+            left: 6%;
+            top: 50%;
+            opacity: 0;
+            -webkit-animation: animation_op 0.5s ease-in 1s forwards;
+        }
+        #part1_button{
+            position: absolute;
+            width: 60%;
+            top: 148%;
+            left: 20%;
+            opacity: 0;
+            -webkit-animation: animation_op 0.5s ease-in 1.5s forwards;
+        }
+        .quiz{
+            position: absolute;
+            width: 88%;
+            left: 6%;
+            top: 5%;
+        }
+        .text{
+            position: absolute;
+            width: 96%;
+            left: 2%;
+            top: 98%;
+        }
+        #part2_button{
+            position: absolute;
+            width: 60%;
+            top: 148%;
+            left: 20%;
+        }
+        @media screen and (min-width:  321px){
+            .wrap{
+            padding-top:290px;
+            }
+        }
+        @media screen and (min-width:  374px){
+            .wrap{
+            padding-top:320px;
+            }
+        }
+        @media screen and (min-width:  400px){
+            .wrap{
+            padding-top:340px;
+            }
+        }
+        @-webkit-keyframes animation_op {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?176611d742fc32fed60e6914c3452378";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+<body>
+<div id="part1">
+<div class="wrap">
+<img src="images/title.png" class="title">
+<img src="images/part1_example.png" class="example">
+<div class="part1_button" id="part1_button">
+<img src="images/part1_button.png">
+</div>
+</div>
+</div>
+<div id="part2">
+<div class="wrap">
+<img src="images/part2_example.png" class="quiz">
+<img src="images/text.png" class="text">
+<div class="part1_button" id="part2_button">
+<img src="images/part2_button.png">
+</div>
+</div>
+</div>
+</body>
+<script type="text/javascript" src="js/utility.js"></script>
+<script type="text/javascript" src="js/bridge_ios.js"></script>
+<script type="text/javascript" src="js/bridge_and.js"></script>
+<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+<script>
+function detectUA() {
+    var u = navigator.userAgent;
+    return {
+        weixin: u.match(/MicroMessenger/i) || window.WeixinJSBridge != undefined,
+        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), 
+        android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1,
+        mobile: !!u.match(/AppleWebKit.*Mobile.*/),
+        iPhone: u.indexOf('iPhone') > -1 
+    };
+}
+window.ua = detectUA();
+
+if (ua.ios) {
+        var init = function () {
+            iOS.initPage(initPageCallBack);
+        };
+        var initPageCallBack = function (message, response) {
+            Util.init(message, response);
+        };
+        init();
+    }
+
+    _hmt.push(['_trackEvent', "guess2p", "guess2pOpen"]);
+    document.getElementById("part1_button").onclick = function () {
+        _hmt.push(['_trackEvent', "guess2p", "guess2pPart1_button"]);
+        document.getElementById('part1').style.display='none'; document.getElementById('part2').style.display='block'
+    }
+
+    
+
+    $('#part2_button').click( function(){
+        _hmt.push(['_trackEvent', "guess2p", "guess2pPart2_button"]);
+            setTimeout( function(){
+                var approaches = ["wechat", "timeline"];
+                var approachesForAndroid = ["wechat", "timeline"];
+                       var type= "1";
+                       var dlg_title ="分享至";
+                       var title = "猜中谜底就有红包拿！觉得自己不算笨的都来试试";
+                       var content = "根据提示猜中正确数字，即可领取红包，马上到账!";
+                       var url = "http://www.chubao.cn/s/20150915G/index.html";
+                       var img_url = "http://marketing.chubao.cn/teachersday/img/part1_bottom.png";
+                       var from= "触宝电话";
+                       if (window.ua.android) {
+                    Java.share(approachesForAndroid, type, dlg_title, title, content, url, img_url, from);
+                       } else if (window.ua.ios) {
+                    iOS.share(approaches, type, dlg_title, title, content, url, from, img_url);
+                       }
+                }, 100)
+ 
+    })
+</script>
+</html>
