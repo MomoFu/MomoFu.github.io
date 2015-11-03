@@ -5,7 +5,7 @@
     $.getJSON('//wx.chubao.cn/getwxconf?url='+myUrl+'&callback=?', function(remoteData){
 	   //向服务器发送请求，获得signature
 	 wx.config({
-	    debug: false, // 开启或关闭调试模式,调用的所有api的返回值会在客户端alert出来
+	    debug: true, // 开启或关闭调试模式,调用的所有api的返回值会在客户端alert出来
 	    appId: remoteData.appId, // 必填，公众号的唯一标识
 	    timestamp: remoteData.timestamp, // 必填，生成签名的时间戳
 	    nonceStr: remoteData.nonceStr, // 必填，生成签名的随机串
@@ -15,8 +15,8 @@
 	 wx.ready(function(){
 	  wx.onMenuShareTimeline({
 		title: '根据提示猜中明星就有红包拿！仅限前1000个，快来看看', // 分享标题
-		link: 'http://www.chubao.cn/s/20151102W/index.html',
-		imgUrl: "http://www.chubao.cn/s/20151102W/images/wx.jpg", // 分享图标，需替换为图片地址
+		link: 'http://www.chubao.cn/s/20151102w/index.html',
+		imgUrl: "http://www.chubao.cn/s/20151102w/images/wx.jpg", // 分享图标，需替换为图片地址
 		success: function () {
 			_hmt.push(['_trackEvent', "guess2W", "guess2WShareToTimeLineSuccess"]);
 		},
@@ -27,8 +27,8 @@
 	  wx.onMenuShareAppMessage({
 		title: '根据提示猜中明星就有红包拿！仅限前1000个，快来看看', // 分享标题
 		desc: '大明星红包，据说拿了会红', // 分享描述
-		link: 'http://www.chubao.cn/s/20151102W/index.html',
-		imgUrl: "http://www.chubao.cn/s/20151102W/images/wx.jpg", // 分享图标，需替换为图片地址
+		link: 'http://www.chubao.cn/s/20151102w/index.html',
+		imgUrl: "http://www.chubao.cn/s/20151102w/images/wx.jpg", // 分享图标，需替换为图片地址
 		type: '', // 分享类型,music、video或link，不填默认为link
 		dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
 		success: function () {
