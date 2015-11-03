@@ -1,0 +1,139 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title>如何使用话费红包</title>
+    <link href="css/detail.css" rel="stylesheet">
+	<script type="text/javascript" src="js/sta.js"></script>
+    <!--script type="text/javascript" src="js/zepto.min.js"></script-->
+	<!--script type="text/javascript" src="js/index.js"></script-->
+</head>
+<body>
+
+    <div class="banner">
+	    <div class="bannerImg">
+	       <img id="bannerImg" src="img2/banner.png"/>
+		</div>
+		<div class="bannerContent">
+		   <div id="icon">
+		       <img src="img2/icon.png"/>
+		   </div>
+		   <div class="bannerText">
+		       <h3>触宝电话，电话免费打！</h3>
+			   <p>1.6亿用户的选择</p>
+		   </div>
+		   <div id="downBtn1" class="downBtn linear">
+		      <p><a href="http://a.app.qq.com/o/simple.jsp?pkgname=com.cootek.smartdialer">下载</a></p>
+		   </div>
+		   <div class="clear"></div>
+		</div>
+	</div>
+	
+	<div class="content">
+	    
+	    <div class="title">
+		    <h2>抢到的分钟数在哪里？</h2>
+		</div>
+		
+		<div class="card">
+		 
+		   <div class="subtitle">
+			    
+	           <img src="img2/red1.png"/>
+			   <div class="subcontent">
+			      <h3>下载触宝电话并绑定手机号</h3>
+				  <p>没有触宝电话？<a href="http://a.app.qq.com/o/simple.jsp?pkgname=com.cootek.smartdialer"><span  id="downBtn2" class="green">在这里下载</span></a></p>
+				  
+				  
+			   </div>
+			   <div class="clear"></div>
+			   
+		   </div>
+		   
+		   <div class="imgZone">
+				      <img src="img2/how1-1.png"/>
+					  <img src="img2/how1-2.png"/>
+					  <img src="img2/how1-3.png"/>
+		   </div>
+		   <div class="clear"></div>
+		</div>
+		
+		<div class="line">
+		    <img src="img2/line.png"/>
+		</div>
+		
+		<div class="card upLittle">
+		 
+		   <div class="subtitle">
+			    
+	           <img src="img2/red2.png"/>
+			   <div class="subcontent">
+			      <h3>查看分钟数</h3>
+				  <p>看看有没有增长</p>
+				  
+				  
+			   </div>
+			   <div class="clear"></div>
+			   
+		   </div>
+		   
+		   <div class="imgZone">
+				      <img src="img2/how2-1.png"/>
+					  <img src="img2/how2-2.png"/>
+					  <img src="img2/how2-3.png"/>
+		   </div>
+		   <div class="clear"></div>
+		</div>
+		<div class="line">
+		    <img src="img2/line.png"/>
+		</div>
+		<div class="card upLittle">
+		 
+		   <div class="subtitle">
+			    
+	           <img src="img2/red3.png"/>
+			   <div class="subcontent">
+			      <h3>对方是触宝用户无限畅聊，对方不是触宝用户扣除分钟数，打电话再也不花钱</h3>
+				  <p>对方不安装，不联网，也能免费打</p>
+				  
+				  
+			   </div>
+			   <div class="clear"></div>
+			   
+		   </div>
+		   
+		   <div class="imgZone">
+				      <img src="img2/how3-1.png"/>
+					 
+		   </div>
+		   <div class="clear"></div>
+		</div>
+		
+		
+	</div>
+<script>
+_hmt.push(['_trackEvent', "number", "numberInDetail"]);
+function me(){
+     console.log("me");
+    _hmt.push(['_trackEvent', "number", "numberClickDownloadAppInDetail"]);
+	 var u = navigator.userAgent;
+            var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1; //android终端或者uc浏览器
+            var isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+			if( isAndroid  )
+				_hmt.push(['_trackEvent', "number", "numberClickDownloadAppAndroid"]);
+			if( isiOS  )
+				_hmt.push(['_trackEvent', "number", "numberClickDownloadAppIOS"]);
+}
+document.getElementById("downBtn1").onclick = function(){
+    // alert("me");
+	 me() ;
+	 
+}
+document.getElementById("downBtn2").onclick = function(){
+    // alert("me");
+	 me() ;
+}
+</script>
+</body>
+</html>
