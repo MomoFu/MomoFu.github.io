@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+	<META HTTP-EQUIV="Pragma" CONTENT="no-cache"> 
+    <META HTTP-EQUIV="Cache-Control" CONTENT="no-cache"> 
+    <META HTTP-EQUIV="Expires" CONTENT="0"> 
+	<meta name="apple-itunes-app" content="app-id=503130474">
+    <title>触宝电话——省钱密码</title>
+	<link href="css/style.css" rel="stylesheet">
+	<script type="text/javascript" src="js/sta.js"></script>
+</head>
+<body>
+
+<div class="mainContent">
+    <div class="bannerContainer">
+	    <img src="images/top_img.jpg" alt="" class="banner"/>
+	</div>
+	<div class="centralContent">
+     
+	  <div class="operateFields">
+	        <span id="errmsg" style="display : block ; text-align : center ; position : relative ; margin-bottom: 4px ;color : black ; font-size : 0.8em ;"></span>
+	       <div class="inputField">
+		      
+		       <span class="showMe">手机号:</span>
+		       <input id="q4" type="tel" placeholder="请输入手机号" name="phone"  maxlength=13/>
+			  <img id="status" src="images/sign_off.png" alt=""/>
+		   </div>
+		   
+		    <div class="inputField">
+		      
+		       <span class="showMe">兑换码:</span>
+		       <input id="q5" type="text" placeholder="" name="code"  maxlength=19/>
+			   <img id="status1" src="images/sign_off.png" alt=""/>
+		   </div>
+		   
+		  <div id="openBtn" class="openBtn linear">
+	        <p>立即兑换</p>
+	      </div>
+	  </div>
+	
+	  
+  </div>
+  <div class="rule">
+   
+	<div class="ruleText">
+	    <h4>触宝电话小贴示：</h4>
+		<p>1. 注册成为触宝电话用户后，即使抽掉手机卡，也可以用注册手机号给大陆的手机、座机在WiFi下免费打电话。目前仅支持拨打国内电话号码，但不限号码主人是否在国内。</p>
+		<p>2. 触宝电话免费电话功能在WiFi不耗任何流量。3/4G下通话每分钟消耗约300K；回拨模式（流量消耗约30K）,通话中是否收费与运营商套餐接听是否免费相关。3/4G流量费与手机月租费由运营商收取。</p>
+    </div>
+</div>
+  
+
+</div>
+
+</body>
+<script type="text/javascript" src="js/zepto.min.js"></script>
+		<script type="text/javascript" src="js/json2.js"></script>
+		<script type="text/javascript" src="js/verify.js"></script>
+		<script type="text/javascript" src="js/stois.js"></script>
+<script>
+var fresh = 0  ;
+window.onload = function(){
+     _hmt.push(['_trackEvent', "allen", "allenIn"]);	
+	 validate.phone("#q4", "手机号码格式不正确");
+	 validate.code("#q5", "验证码格式不正确");
+	 $('#q4').val("");
+	 $('#q5').val("");
+     $("#openBtn").focus(function(){this.blur()});
+	 
+	
+	
+		
+		$('#openBtn').on('click' , function(){
+			
+			if( $('#openBtn').hasClass("active") ){
+			  _hmt.push(['_trackEvent', "allen", "allenClickGetButton"]);	
+			   var phoneNum =   $('#q4').val().replace(/\s/g,"");
+			   var code = $('#q5').val().replace(/\s/g,"");
+			   console.log(phoneNum+" "+code);
+			   var judgeUrl =  'http://ws2.cootekservice.com/voip/bonus_register';
+			   
+				$.get('http://touchlife.cootekservice.com/redeem/public/exchange', {phone: phoneNum,redeem_code: code}, function(result){
+			            
+					console.log(result.result_code);
+						
+					if(result.result_code == 2000 ){
+						_hmt.push(['_trackEvent', "allen", "allenGain"]);
+						$.get(judgeUrl,{phone: phoneNum}, function(result){
+						    if(result.result){
+								fresh = result.result.status ;
+								window.location.href = "gain.html?phone="+phoneNum+"&fresh="+fresh;
+							}
+						});
+					}
+					else if(result.result_code == 4101 ){
+						_hmt.push(['_trackEvent', "allen", "allenAlready"]);
+						window.location.href = "already.html"; 
+					}
+					else if(result.result_code == 4103){
+						 _hmt.push(['_trackEvent', "allen", "allenFailInCode"]);
+						   // window.location.href = "error.html";  // change to tips
+						  var tipCon = $('#errmsg');
+						  tipCon.html("请您核对兑换码是否正确");
+					}
+					else if(result.result_code == 4102){
+						 _hmt.push(['_trackEvent', "allen", "allenExpire"]);
+						   // window.location.href = "error.html";  // change to tips
+						  var tipCon = $('#errmsg');
+						  tipCon.html("兑换码已过期");
+					}
+					else if(result.result_code == 4100 || result.result_code == 4104 ){
+					         _hmt.push(['_trackEvent', "allen", "allenLose"]);
+							window.location.href = "lose.html"; 
+					}
+				})
+					
+
+			}
+			
+		//	$('#q4').removeClass("pass");
+		   
+		});
+	
+}
+
+
+</script>
+</html>

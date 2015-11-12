@@ -1,0 +1,86 @@
+﻿@charset "UTF-8";
+html,body{width: 100%;}
+img{display: block ; margin: 0 ;padding : 0 ;}
+html,body,div,span,h1,h2,h3,h4,h5,h6,p,a,em,img,input,q,b,dl,dt,dd,ol,ul,li,label,canvas{ margin:0; padding:0; border:0; outline:0; }
+a{
+text-decoration:none;
+ -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+}
+body{ 
+   
+   font-size-adjust: none; 
+   text-align: center; 
+   margin: 0 auto; 
+   font-family:'Microsoft YaHei',arial,sans-serif,'Droid Sans Fallback'; 
+}
+
+.titleContainer{
+	position : relative ;
+	margin: auto ;
+	margin-top : 40px ;
+}
+
+.titleContainer h2{
+	font-size: 32px ;
+	 letter-spacing:4px ;
+	color : #f9910a;
+	text-align : center ;
+	margin-bottom : 30px ;
+}
+
+.desc{
+	position: relative;
+	width : 86% ;
+	margin: auto ;
+	text-align : left ;
+}
+
+.desc p{
+	color : #6f440c;
+	font-size : 14px ;
+}
+
+.blue{
+	color : #2195e6;
+}
+
+.downBtn{
+    
+	width : 64%;
+	margin: auto ;
+	margin-top: 20px ;
+	height : 46px ;
+	 background-color : #f9910a;
+	border-radius : 12px ;
+	
+}
+
+
+
+.downBtn p{
+    text-align : certer ;
+	
+	color : white ;
+	font-size : 20px ;
+	line-height: 46px ;
+}
+
+.intro{
+	margin-top : 20px ;
+}
+
+.intro h4{
+	font-size : 16px ;
+	line-height : 30px ;
+}
+
+.intro p{
+	font-size : 18px ;
+	line-height : 1.5 ;
+	color : #6f440c;
+}
+
+
+
