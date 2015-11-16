@@ -1,0 +1,179 @@
+ .contentContainer{
+		    position : relative ;
+			margin: auto;
+		}
+		
+		.nav{
+		   position : fixed ;
+		   z-index : 2 ;
+		   top : 200px ;
+		   right : 7% ;
+		   width : 11% ;
+		   
+		}
+		
+		.nav .item{
+			position : relative ;
+		    text-align : left ;
+			border-left : 2px solid #eee ;
+			padding-left : 10px ;
+			color : #dedede;
+			line-height : 32px ;
+			font-size : 16px ;
+			cursor: pointer;
+		}
+		
+		.nav li{
+		    color : white ;
+			
+		}
+		.nav li:before{
+			
+		}
+		
+		
+		.item.active{ 
+		    background-color : #dedede ;
+			color : white ;
+			
+			
+			/*ackground:  url(../images/sideCatalog_a278e02.gif) -271px -38px no-repeat;*/
+			
+		}
+		
+		.item.active a{
+			
+		}
+		
+		.item.active:before{
+			background:  url(../images/sideCatalog_a278e02.gif) -271px -38px no-repeat;
+		}
+		
+		/*
+		.nav .item:hover{
+			background-color : #eee ;
+			color : #666 ;
+		}
+		*/
+		a,a:hover{ text-decoration:none; color:#333}
+		
+		 a:active { 
+			
+			text-decoration:none; 
+			} 
+		 a:link {
+		   
+			text-decoration:none; 
+		}
+		@media only screen and (min-width: 400px) and (max-width: 1024px){
+            .contentContainer{
+				position : relative ;
+				width : 90% ;
+				margin: auto;
+			}  
+			.nav{
+		      
+			    display : none ;
+		   
+			}
+        }
+		
+		@media only screen and (min-width: 1024px) {
+            .contentContainer{
+				max-width: 960px;
+				width : 60% ;
+			}  
+        }
+		
+		img{
+		   display : block;
+		   position : relative ;
+		   width : 640px ;
+		   margin :auto ;
+		   margin-top : 20px ;
+		}
+		
+		.articleContainer{
+		   position : relative ;
+		   width : 100% ;
+		   padding-top : 60px ;
+		   padding-bottom : 100px ;
+		}
+		
+		.articleContainer p{
+		    text-indent : 2em ;
+			text-align : left ;
+			font-size : 16px ;
+			margin-top : 20px ;
+			font-family : Microsoft Yahei ;
+			color : #333333;
+			line-height : 24px ;
+		}
+		
+		.articleContainer h1{
+		   
+			text-align : left ;
+			font-size : 40px ;
+			margin-bottom : 60px ;
+			margin-top : 60px ;
+			font-family : Microsoft Yahei ;
+			font-weight : bold ;
+			color : #333 ;
+		}
+		
+		.articleContainer h2{
+		   
+			text-align : left ;
+			font-size : 18px ;
+			margin-bottom : 40px ;
+			padding-top :10px ;
+			margin-top : 40px ;
+			font-family : Microsoft Yahei ;
+			font-weight : bold ;
+			color : #333333 ;
+		}
+		
+		.tableContainer{
+		    position : relative ;
+			margin: auto ;
+			width : 100% ;
+			margin-top : 20px ;
+		}
+		#table2{
+		   width : 100% ;
+		}
+		.tableContainer p{
+		    color: grey ;
+			 font-style:italic;
+		}
+		table {
+		
+		width : 100% ;
+	font-family: Microsoft Yahei;
+	font-size:16px;
+	color:#333333;
+	border-width: 1px;
+	border-color: #666666;
+	border-collapse: collapse;
+	text-align: center ;
+}
+table th {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #666666;
+	background-color: #dedede;
+}
+table td {
+	border-width: 1px;
+	padding: 8px;
+	border-style: solid;
+	border-color: #666666;
+	background-color: #ffffff;
+}
+
+td img{
+	width : 20px ;
+	display : inline;
+	margin : 0 ;
+}
