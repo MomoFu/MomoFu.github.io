@@ -1,0 +1,203 @@
+@import "base";
+#shareContainer{
+    display: none;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #ffffff;
+    z-index: 5000;
+}
+#shareContainer img{
+    display: block;
+    position: absolute;
+}
+@-webkit-keyframes topCloudShake{
+    from{
+        -webkit-transform: translateX(0px);
+        opacity: 1;
+    }
+    to{
+        -webkit-transform: translateX(-10px);
+        opacity: 0.7;
+    }
+}
+.topCloudShake{
+        animation: topCloudShake 5s ease;
+        -webkit-animation: topCloudShake 5s linear;
+        -webkit-animation-iteration-count: infinite;
+        -webkit-animation-direction: alternate;
+}
+#topCloud{
+    z-index: 1000;
+    height: 13%;
+    top: 0%;
+    left: 0%;
+    opacity: 0;
+}
+
+.topCloud{
+    opacity: 0;
+    -webkit-animation: animation_opa2 3s ease-out forwards;
+}
+
+
+@-webkit-keyframes jokerScale{
+    from{
+        -webkit-transform: scale(1);
+    }
+    50%{
+        -webkit-transform: scale(1.5);
+    }
+    to{
+        -webkit-transform: scale(1);
+    }
+}
+.jokerScale{
+    -webkit-animation: jokerScale 1s ease;
+}
+
+@-webkit-keyframes jokerShake{
+    from{
+        -webkit-transform: rotate(0deg);
+    }
+    25%{
+        -webkit-transform: rotate(-5deg);
+    }
+    50%{
+        -webkit-transform: rotate(0deg);
+    }
+    75%{
+        -webkit-transform: rotate(5deg);
+    }
+    to{
+        -webkit-transform: rotate(0deg);
+    }
+}
+.jokerShake{
+    -webkit-transform-origin: center bottom;
+    -webkit-animation: jokerShake 2s linear;
+    -webkit-animation-iteration-count: infinite;
+    -moz-animation-direction: alternate;
+}
+
+#joker{
+    width: 35%;
+    top: 10%;
+    left: 34%;
+
+}
+#bazinga{
+    top: 48%;
+    left: 25%;
+    width: 50%;
+}
+#para{
+    position: absolute;
+    width: 75%;
+    height: 40%;
+    top: 58%;
+    left: 12.5%;
+    color: @font-color;
+    font-size: 14px;
+}
+
+#share{
+    width: 50%;
+    height: 43px;
+    line-height: 43px;
+    color: #ffffff;
+    background-color: @btn-color;
+    position: absolute;
+    top: 82%;
+    left: 25%;
+    text-align: center;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    font-size: 20px;
+    z-index: 2000;
+}
+.shareOnCover{
+    background-color: #7b7b7b !important;
+}
+@-webkit-keyframes downCloudShake {
+    from{
+        -webkit-transform: translateX(0px);
+        opacity: 1;
+    }
+    to{
+        -webkit-transform: translateX(10px);
+        opacity: 0.7;
+    }
+
+}
+.downCloudShake{
+    -webkit-animation: downCloudShake 5s linear;
+    -webkit-animation-direction: alternate;
+    -webkit-animation-iteration-count: infinite;
+}
+#downCloud{
+    z-index: 1000;
+    height: 15%;
+    bottom: 0%;
+    right: 0%;
+    opacity: 0;
+}
+.downCloud{
+    -webkit-animation: animation_opa2 3s ease-out forwards;
+}
+
+
+@media screen and (max-width: 320px){
+    #joker{
+        width: 26%;
+        left: 37%;
+    }
+    #bazinga{
+        width: 42%;
+        top: 43%;
+        left: 29%;
+    }
+    #para{
+        font-size: 12px;
+        top: 52%;
+    }
+    #share{
+        top: 80%;
+    }
+}
+/*ip5 */
+@media screen and (max-width: 320px) and (min-height: 479px){
+    #para{
+        top: 55%;
+    }
+    #joker{
+        width: 32%;
+        left: 34%;
+    }
+    #bazinga{
+        top: 44%;
+    }
+}
+
+
+.bazinga{
+    opacity: 0;
+    &.on-active{
+        -webkit-animation: animation_opa 3s ease-out 1.2s forwards;
+    }
+}
+.para{
+    opacity: 0;
+    &.on-active{
+        -webkit-animation: animation_opa 2s ease-out 1.4s forwards;
+    }
+}
+.share{
+    opacity: 0;
+    &.on-active{
+        -webkit-animation: animation_opa 3s ease-out 1.6s forwards;
+    }
+}

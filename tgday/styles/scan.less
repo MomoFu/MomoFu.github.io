@@ -1,0 +1,181 @@
+.scan{
+//    display: none;
+    height: 100%;
+    position: absolute;
+    top: 0%;
+    background-color: #000000;
+    z-index: 6000;
+}
+
+#wrapper {
+    position: relative;
+}
+
+#scan {
+    position: absolute;
+    width: 70%;
+    height: 47%;
+    top: 25%;
+    left: 14.5%;
+}
+
+#bg {
+    width: 100%;
+}
+
+@-webkit-keyframes hexagon1 {
+    from {
+        -webkit-transform: scale(1, 1);
+        transform: scale(1, 1);
+        opacity: 1;
+    }
+    to {
+        -webkit-transform: scale(0.5, 0.5);
+        transform: scale(0.5, 0.5);
+        opacity: 0;
+    }
+}
+
+#hexagon1 {
+    zoom: 0.5;
+    position: absolute;
+    top: 0;
+    left: 25%;
+    -webkit-animation: hexagon1 2s ease;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+    /*-webkit-animation-delay: 1s;*/
+}
+
+@-webkit-keyframes hexagon2 {
+    from {
+        -webkit-transform: scale(0.4, 0.4);
+        transform: scale(0.4, 0.4);
+        opacity: 1;
+    }
+    to {
+        -webkit-transform: scale(1, 1);
+        transform: scale(1, 1);
+        opacity: 0;
+    }
+}
+
+#hexagon2 {
+    zoom: 0.7;
+    position: absolute;
+    top: 1%;
+    left: 70%;
+    -webkit-animation: hexagon2 3s ease;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+}
+
+@-webkit-keyframes hexagon3 {
+    from {
+        -webkit-transform: scale(0.5, 0.5);
+        transform: scale(0.5, 0.5);
+        opacity: 1;
+    }
+    to {
+        -webkit-transform: scale(1, 1);
+        transform: scale(1, 1);
+        opacity: 0;
+    }
+}
+
+#hexagon3 {
+    zoom: 0.3;
+    position: absolute;
+    top: 12%;
+    left: 54%;
+    -webkit-animation: hexagon3 2s ease;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+}
+
+@-webkit-keyframes look {
+    0% {
+        opacity: 1;
+    }
+    30%{
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+#look {
+    width: 46%;
+    height: 25px;
+    position: absolute;
+    top: 42.4%;
+    left: 27%;
+    display: none;
+    -webkit-animation: look 1.5s ease;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-direction: alternate;
+}
+
+#progress_area {
+
+    position: absolute;
+    width: 350px;
+    left: 50%;
+    top: 78%;
+    -webkit-transform: translate(-50%, -50%);
+}
+
+#expression {
+    display: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 12px;
+    margin-bottom: 4px;
+}
+
+#progress_bar {
+    display: none;
+    margin: 0 auto;
+    background-color: #404040;
+    height: 10px;
+    width: 70%;
+}
+
+@-webkit-keyframes progressBegin {
+    from{
+        width: 0%;
+    }
+
+    30%{
+        width: 50%;
+    }
+    50%{
+        width: 60%;
+    }
+    60%{
+        width: 70%;
+    }
+    70%{
+        width: 90%;
+    }
+    90%{
+        width: 91%;
+    }
+    to{
+        width: 100%;
+    }
+}
+.progressBegin{
+    -webkit-animation: progressBegin 10s linear forwards;
+}
+#recent_progress {
+    margin-top: 1px;
+    margin-left: 1px;
+    height: 8px;
+    width: 0%;
+    float: left;
+    background-color: #10cae7;
+}
+
+
