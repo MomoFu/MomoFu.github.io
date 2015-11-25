@@ -27,7 +27,7 @@
     </script>
 </head>
 <body>
-<audio src="music/music.mp3" controls="" class="music-show"></audio>
+<audio src="music/music.mp3" id="audio" preload="load" controls="controls" class="music-show"></audio>
 <div class="music-box active">
     <img src="images/music.png">
 </div>
@@ -142,7 +142,40 @@
 <script src="scripts/touch.js"></script>
 <script type="text/javascript" src="scripts/scan.js"></script>
 <script src="scripts/main.js"></script>
-
+<script>
+    var onPlay = true ;
+    function playSound()
+    {
+    var node=document.getElementById('audio');
+       if(node!=null)
+        {
+            node.play();
+        }
+    }
+	function pauseSound()
+    {
+    var node=document.getElementById('audio');
+       if(node!=null)
+        {
+            node.pause();
+        }
+    }
+	playSound();
+	$('.music-box').on('click', function(){
+	     console.log('click');
+		 console.log(onPlay);
+		if( onPlay ){
+		    pauseSound();
+			onPlay = false ;
+			$('.music-box').removeClass('active');
+		}
+		else{
+			playSound();
+			onPlay = true ;
+			$('.music-box').addClass('active');
+		}
+	})
+</script>
 </body>
 
 </html>
