@@ -1,0 +1,257 @@
+body {
+  margin: 0;
+  font-size: 1.4rem;
+  line-height: 1.5;
+  color: #333333;
+  background-color: #000;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+img {
+  width: 100%;
+}
+@-webkit-keyframes animation_op {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes animation_fire {
+  from {
+    -webkit-transform: translate(0, 0);
+    opacity: 1;
+  }
+  50% {
+    -webkit-transform: translate(-20%, -25%);
+    opacity: 0.5;
+  }
+  to {
+    -webkit-transform: translate(-50%, -50%);
+    opacity: 1;
+  }
+}
+@-webkit-keyframes animation_person {
+  0% {
+    -webkit-transform: translate(0, 0);
+  }
+  15% {
+    -webkit-transform: translate(10px, 5px);
+  }
+  30% {
+    -webkit-transform: translate(0, 0);
+  }
+  45% {
+    -webkit-transform: translate(-10px, 5px);
+  }
+  60% {
+    -webkit-transform: translate(0, 0);
+  }
+  75% {
+    -webkit-transform: translate(10px, 5px);
+  }
+  100% {
+    -webkit-transform: translate(0, 0);
+  }
+}
+@-webkit-keyframes animation_body {
+  from {
+    -webkit-transform: scale(0.9, 0.9);
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 1;
+  }
+  to {
+    -webkit-transform: scale(1, 1);
+    opacity: 1;
+  }
+}
+@-webkit-keyframes animation_hand {
+  from {
+    -webkit-transform: rotate(30deg);
+    opacity: 0;
+  }
+  to {
+    -webkit-transform: rotate(0deg);
+    opacity: 1;
+  }
+}
+@-webkit-keyframes animation_text {
+  from {
+    -webkit-transform: scale(3, 3);
+    opacity: 0;
+  }
+  75% {
+    opacity: 1;
+    -webkit-transform: scale(1, 1);
+  }
+  80% {
+    opacity: 1;
+    -webkit-transform: scale(1.5, 1.5);
+  }
+  to {
+    -webkit-transform: scale(1, 1);
+    opacity: 1;
+  }
+}
+@-webkit-keyframes animation_arrow {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate(0, 0);
+  }
+  25% {
+    opacity: 0.4;
+    -webkit-transform: translate(0, -10%);
+  }
+  60% {
+    opacity: 0.8;
+    -webkit-transform: translate(0, -30%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translate(0, -40%);
+  }
+}
+@-webkit-keyframes playmusic {
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+.part1 {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  padding-top: 1px;
+  margin-top: 0;
+  background: url("../images/part1_bg.jpg") no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+.part1 .fire_op {
+  opacity: 0;
+  -webkit-animation: animation_op 2s   linear forwards;
+}
+.part1 .fire_op .fire {
+  position: absolute;
+  width: 250%;
+  left: 0;
+  -webkit-animation: animation_fire 10s linear infinite;
+}
+.part1 .title {
+  position: absolute;
+  width: 86%;
+  left: 7%;
+  top: 2%;
+  opacity: 0;
+  -webkit-animation: animation_op 2s linear forwards;
+}
+.part1 .light {
+  position: absolute;
+  width: 70%;
+  top: -2%;
+  left: 2%;
+  opacity: 0;
+  -webkit-animation: animation_op 0.2s 1.8s linear forwards;
+}
+.part1 .person {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  -webkit-animation: animation_person 1.6s ease-in both;
+}
+.part1 .person .body {
+  position: absolute;
+  bottom: -47px;
+  width: 113%;
+  left: -6%;
+  opacity: 0;
+  -webkit-animation: animation_body 1.6s linear forwards ;
+}
+.part1 .person .hand {
+  position: absolute;
+  bottom: -14px;
+  width: 82%;
+  left: 16%;
+  opacity: 0;
+  -webkit-animation: animation_hand 0.2s 1.8s ease-out forwards;
+  -webkit-transform-origin: left bottom;
+}
+.part1 .text {
+  top: 19%;
+  position: absolute;
+  width: 100%;
+  left: 0;
+}
+.part1 .text .text1 {
+  position: absolute;
+  width: 21%;
+  top: 13px;
+  left: 6%;
+  opacity: 0;
+  -webkit-animation: animation_text 0.1s 2s ease-in forwards;
+}
+.part1 .text .text2 {
+  position: absolute;
+  width: 27%;
+  top: 18px;
+  left: 27%;
+  opacity: 0;
+  -webkit-animation: animation_text 0.1s 2.15s ease-in forwards;
+}
+.part1 .text .text3 {
+  position: absolute;
+  width: 18%;
+  top: 0;
+  left: 56%;
+  opacity: 0;
+  -webkit-animation: animation_text 0.1s 2.3s ease-in forwards;
+}
+.part1 .text .text4 {
+  position: absolute;
+  width: 24%;
+  top: 18px;
+  left: 71%;
+  opacity: 0;
+  -webkit-animation: animation_text 0.1s 2.45s ease-in forwards;
+}
+.part1 .arrow {
+  width: 12%;
+  left: 44%;
+  position: absolute;
+  bottom: 0;
+  opacity: 0;
+  -webkit-animation: animation_arrow 1s ease-out 2.6s infinite both;
+}
+.music-show {
+  display: none;
+  height: 30px;
+  opacity: 0;
+  position: fixed;
+}
+.music-box {
+  position: fixed;
+  right: 10px;
+  top: 10px;
+  z-index: 999;
+  width: 25px;
+  height: 25px;
+  border: solid 1px #FFFFFF;
+  border-radius: 15px;
+}
+.music-box img {
+  width: 15px;
+  position: absolute;
+  top: 5px;
+  left: 4px;
+}
+.music-box.active {
+  -webkit-animation: playmusic 2s linear infinite;
+}

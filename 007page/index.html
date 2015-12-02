@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui"/>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <link rel="stylesheet" media="screen and (max-height: 489px)" href="css/minHeight.css" type="text/css"/>
+    <title></title>
+ </head>
+ <body>
+ <audio src="music/007music.mp3" id="audio" preload="load" loop="loop" controls="controls" class="music-show"></audio>
+ <div class="music-box active">
+     <img src="images/music.png">
+ </div>
+ <div class="part1">
+     <div class="fire_op">
+     <img src="images/part1_fire.png" class="fire">
+     </div>
+     <img src="images/part1_title1.png" class="title">
+     <img src="images/part1_light.png" class="light">
+     <div class="person">
+         <img src="images/part1_body.png" class="body">
+         <img src="images/part1_hand.png" class="hand">
+     </div>
+     <div class="text">
+         <img src="images/part1_text1.png" class="text1">
+         <img src="images/part1_text2.png" class="text2">
+         <img src="images/part1_text3.png" class="text3">
+         <img src="images/part1_text4.png" class="text4">
+     </div>
+     <div class="arrow">
+         <img src="images/arrow.png">
+     </div>
+ </div>
+ <script src="http://libs.baidu.com/jquery/2.1.4/jquery.min.js"></script>
+ <script>
+     var onPlay = true ;
+     function playSound()
+     {
+         var node=document.getElementById('audio');
+         if(node!=null)
+         {
+             node.play();
+         }
+     }
+     function pauseSound()
+     {
+         var node=document.getElementById('audio');
+         if(node!=null)
+         {
+             node.pause();
+         }
+     }
+     playSound();
+     $('.music-box').on('click', function(){
+         console.log('click');
+         console.log(onPlay);
+         if( onPlay ){
+             pauseSound();
+             onPlay = false ;
+             $('.music-box').removeClass('active');
+         }
+         else{
+             playSound();
+             onPlay = true ;
+             $('.music-box').addClass('active');
+         }
+     })
+ </script>
+ </body>
+</html>
