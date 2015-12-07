@@ -12,6 +12,10 @@ body {
 img {
   width: 100%;
 }
+a {
+  text-decoration: none;
+}
+/*动画*/
 @-webkit-keyframes animation_op {
   from {
     opacity: 0;
@@ -124,6 +128,31 @@ img {
     -webkit-transform: rotate(360deg);
   }
 }
+@-webkit-keyframes animation_p4arrow {
+  from {
+    -webkit-transform: translate(0, 10%);
+  }
+  to {
+    -webkit-transform: translate(0, 0);
+  }
+}
+@-webkit-keyframes animation_wrap {
+  0% {
+    -webkit-transform: perspective(400px) rotateX(90deg);
+    opacity: 0;
+  }
+  40% {
+    -webkit-transform: perspective(400px) rotateX(-10deg);
+  }
+  70% {
+    -webkit-transform: perspective(400px) rotateX(5deg);
+  }
+  100% {
+    -webkit-transform: perspective(400px) rotateX(0deg);
+    opacity: 1;
+  }
+}
+/*p1样式*/
 .part1 {
   width: 100%;
   height: 100%;
@@ -136,7 +165,7 @@ img {
 }
 .part1 .fire_op {
   opacity: 0;
-  -webkit-animation: animation_op 2s   linear forwards;
+  -webkit-animation: animation_op 2s linear forwards;
 }
 .part1 .fire_op .fire {
   position: absolute;
@@ -173,7 +202,7 @@ img {
   width: 113%;
   left: -6%;
   opacity: 0;
-  -webkit-animation: animation_body 1.6s linear forwards ;
+  -webkit-animation: animation_body 1.6s linear forwards;
 }
 .part1 .person .hand {
   position: absolute;
@@ -230,6 +259,202 @@ img {
   opacity: 0;
   -webkit-animation: animation_arrow 1s ease-out 2.6s infinite both;
 }
+/*p3样式*/
+.part3 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url("../images/p3-bg.jpg") no-repeat;
+  background-size: cover;
+}
+.part3 .p3_wrap1 {
+  width: 80%;
+  left: 10%;
+  position: absolute;
+  top: 10%;
+  opacity: 0;
+  -webkit-animation: animation_wrap 1s both;
+}
+.part3 .p3_wrap1 .p3_minute {
+  width: 74%;
+  left: 13%;
+  top: 4%;
+  position: absolute;
+}
+.part3 .p3_wrap1 .p3_minute p {
+  width: 100%;
+  text-align: center;
+  position: absolute;
+  top: 4%;
+  font-size: 16px;
+}
+.part3 .p3_wrap1 .p3_minute p span {
+  font-size: 36px;
+}
+.part3 .p3_wrap1 .text_wrap {
+  width: 80%;
+  left: 10%;
+  position: absolute;
+  top: 30%;
+}
+.part3 .p3_wrap1 .text_wrap p {
+  width: 80%;
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  font-size: 14px;
+  color: #FFFFFF;
+}
+.part3 .p3_wrap1 .button_receive {
+  width: 60%;
+  position: absolute;
+  top: 60%;
+  left: 20%;
+}
+.part3 .p3_wrap1 .button_again {
+  width: 60%;
+  position: absolute;
+  top: 78%;
+  left: 20%;
+}
+.part3 .p3_wrap2 {
+  display: none;
+  width: 80%;
+  left: 10%;
+  position: absolute;
+  top: 13%;
+  opacity: 0;
+  -webkit-animation: animation_wrap 1s both;
+}
+.part3 .p3_wrap2 h3 {
+  font-size: 14px;
+  color: #FFFFFF;
+  position: absolute;
+  width: 80%;
+  left: 10%;
+  top: 10%;
+  line-height: 24px;
+}
+.part3 .p3_wrap2 input {
+  background: #232323;
+  border: 1px solid #000000;
+  position: absolute;
+  width: 80%;
+  left: 10%;
+  top: 35%;
+  font-size: 14px;
+  line-height: 40px;
+  color: #FFFFFF;
+  border-radius: 5px;
+  text-align: center;
+}
+.part3 .p3_wrap2 input::-webkit-input-placeholder {
+  color: #eaeaea;
+}
+.part3 .p3_wrap2 p {
+  position: absolute;
+  width: 80%;
+  left: 10%;
+  top: 46%;
+  font-size: 14px;
+  color: #FFFFFF;
+  text-align: center;
+}
+.part3 .p3_wrap2 .button_confirm {
+  position: absolute;
+  width: 70%;
+  left: 15%;
+  bottom: 10%;
+}
+.part3 .p3_wrap2 .button_close {
+  width: 20%;
+  position: absolute;
+  right: -16px;
+  top: -16px;
+}
+/*p4样式*/
+.part4 {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.part4 .part4_top {
+  position: relative;
+  width: 100%;
+  margin: 0;
+}
+.part4 .part4_top .p4_top_img {
+  width: 100%;
+}
+.part4 .part4_top .p4_level {
+  width: 50%;
+  position: absolute;
+  bottom: 10%;
+  left: 5%;
+}
+.part4 .part4_top .p4_person {
+  position: absolute;
+  width: 50%;
+  bottom: 16%;
+  right: 12%;
+}
+.part4 .part4_top .p4_name {
+  position: absolute;
+  top: 24%;
+  left: 10%;
+  color: #FFFFFF;
+  font-size: 18px;
+}
+.part4 .part4_top .p4_piece {
+  position: absolute;
+  top: 37%;
+  left: 10%;
+  color: #FFFFFF;
+  font-size: 14px;
+}
+.part4 .part4_top .p4_arrow {
+  position: absolute;
+  width: 13%;
+  right: 0;
+  top: 0;
+  -webkit-animation: animation_p4arrow 0.5s linear infinite both alternate;
+}
+.part4 .p4_box {
+  position: relative;
+  width: 100%;
+  margin-top: 5%;
+}
+.part4 .p4_box .p4_box_img {
+  width: 94%;
+  margin-left: 3%;
+  display: block;
+}
+.part4 .p4_box .p4_minute {
+  position: absolute;
+  width: 100%;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 12px;
+  top: 5%;
+}
+.part4 .p4_box .p4_minute span {
+  color: #ffdb00;
+}
+.part4 .p4_box .p4_button {
+  width: 60%;
+  top: 21%;
+  left: 20%;
+  position: absolute;
+}
+.part4 a {
+  color: #666;
+  font-size: 12px;
+  position: relative;
+  text-align: center;
+  display: block;
+  margin-top: 10%;
+}
+/*音乐样式*/
 .music-show {
   display: none;
   height: 30px;

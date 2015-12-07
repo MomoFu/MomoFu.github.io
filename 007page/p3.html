@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui"/>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <link rel="stylesheet" media="screen and (max-height: 489px)" href="css/minHeight.css" type="text/css"/>
+    <title></title>
+</head>
+<body>
+<div class="part3">
+    <div class="p3_wrap1" id="wrap1">
+        <img src="images/p3-defen-tieban.png">
+        <div class="p3_minute">
+            <p>
+                <span>15</span><!--调取分钟数-->
+                分钟
+            </p>
+        <img src="images/p3-defen-youpiao.png">
+        </div>
+        <div class="text_wrap">
+        <img src="images/p3-defen-ziban.png">
+            <p>身手矫捷的您抢到了
+                <span>9</span><!--调取物品数-->
+                件物品！恭喜您赢得了
+                <span>15</span><!--调取分钟数-->
+                分钟免费通话时长。
+            </p>
+        </div>
+        <div class="button_receive" id="button"><!--领取按钮-->
+            <img src="images/p3-defen-btn1.png">
+        </div>
+        <div class="button_again"><!--再试一次按钮-->
+            <img src="images/p3-defen-btn2.png">
+        </div>
+    </div>
+    <div class="p3_wrap2" id="wrap2">
+        <img src="images/p3-lingqu-ban.png">
+        <h3>通话时长会放入您的手机号对应的触宝电话账户中</h3>
+        <input type="tel" placeholder="请输入手机号" maxlength=11/>
+        <p>(您已经参加过此活动</p><!--判断是否参加过此活动-->
+        <div class="button_confirm"><!--确定输入手机按钮-->
+            <img src="images/p3-lingqu-btn2.png">
+        </div>
+        <div class="button_close" id="button2"><!--关闭窗口按钮-->
+            <img src="images/p3-lingqu-btn1.png">
+        </div>
+    </div>
+</div>
+<script><!--测试按钮，没有用途-->
+    document.getElementById("button").onclick = function () {
+        document.getElementById('wrap1').style.display='none'; document.getElementById('wrap2').style.display='block'
+    }
+    document.getElementById("button2").onclick = function () {
+        document.getElementById('wrap2').style.display='none'; document.getElementById('wrap1').style.display='block'
+    }
+</script>
+</body>
+</html>
