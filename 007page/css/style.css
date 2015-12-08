@@ -367,10 +367,10 @@ a {
   bottom: 10%;
 }
 .part3 .p3_wrap2 .button_close {
-  width: 20%;
+  width: 10%;
   position: absolute;
-  right: -16px;
-  top: -16px;
+  right: -6px;
+  top: -8px;
 }
 /*p4样式*/
 .part4 {
