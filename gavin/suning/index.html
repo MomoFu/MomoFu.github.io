@@ -20,7 +20,7 @@
 	<div class="centralContent">
       <img id="redImg" src="img/redPack.png"/>
 	  <div class="operateFields">
-	       <input id="q4" type="tel" placeholder="请输入手机号" name="c360hb"  maxlength=11/>
+	       <input id="q4" type="tel" placeholder="请输入手机号" name="suning"  maxlength=11/>
 		   <span style="display : block ; text-align : center ; position : relative ; color : white ; font-size : 0.8em ;"></span>
 		   <div class="showText">
 	         <p>输入手机号，分钟数自动放入触宝账户</p>
@@ -58,10 +58,10 @@
 		<script type="text/javascript" src="js/verify.js"></script>
 		<script type="text/javascript" src="js/stois.js"></script>
 <script>
-var bonus_id = "nlghijklmnofg_2_97";
-var sign = "f5f50f28f0505b6321427e5b81dc5813";
+var bonus_id = "nlghijklmnofg_2_113";
+var sign = "a544710ac28c807a3d553600f7fef61c";
 window.onload = function(){
-     _hmt.push(['_trackEvent', "c360hb", "c360hbIn"]);	
+     _hmt.push(['_trackEvent', "suning", "suningIn"]);	
 	 validate.phone("#q4", "手机号码格式不正确");
 	 $('#q4').val("");
      $("openBtn").focus(function(){this.blur()});
@@ -89,44 +89,62 @@ window.onload = function(){
 		$('#openBtn').on('click' , function(){
 			
 			if( $('#q4').hasClass("pass") ){
-			  _hmt.push(['_trackEvent', "c360hb", "c360hbClickGetButton"]);	
+			  _hmt.push(['_trackEvent', "suning", "suningClickGetButton"]);	
 			   var tmp =   $('#q4').val() ;
 			  
 			  $.ajax({
-                //url: 'http://121.52.235.231:40401/voip/get_bonus', //for test
+               // url: 'http://121.52.235.231:40401/voip/get_bonus', //for test
 			   url: 'http://ws2.cootekservice.com/voip/get_bonus',
                 type: 'post',
                 data: '{"bonus_id":"'+bonus_id+'","sign":"'+sign+'","phone":"'+$('#q4').val()+'"}',
                 dataType: 'json',
                 success: function (data) {
+				    var me =  JSON.stringify(data);
+					 console.log(me);
 				    $('#q4').val("");	
                     if(data.result_code==2000){
-					   _hmt.push(['_trackEvent', "c360hb", "c360hbGain"]);
-					   console.log("gain");
-                        window.location.href = "gain.html?phone="+tmp;
+					    var bonus = parseInt(data.result.bonus / 0.2) ;
+					   _hmt.push(['_trackEvent', "suning", "suningGain"]);
+					    var judgeUrl =  'http://ws2.cootekservice.com/voip/bonus_register';
+			  
+					
+					    $.get(judgeUrl,{phone: tmp}, function(result){
+					 
+							if(result.result.status == 1 ){
+								window.location.href = "gain.html?phone="+tmp+'&bonus='+(bonus+500);
+							}
+							else if(result.result.status == 0 ){
+								window.location.href = "gain.html?phone="+tmp+'&bonus='+(bonus);
+							}
+							else{
+							  
+							}
+							
+					});
+                     //   window.location.href = "gain.html?phone="+tmp;
                     }else{
                         if(data.result_code==4312){
-						        _hmt.push(['_trackEvent', "c360hb", "c360hbLose"]);
+						        _hmt.push(['_trackEvent', "suning", "suningLose"]);
 								 console.log("already");
 								 window.location.href = "already.html";
                         	//	document.getElementById("lose").style.display = "block" ;
                         }else{
                         		if (data.result_code==4313){
-								      _hmt.push(['_trackEvent', "c360hb", "c360hbOut"]);
+								      _hmt.push(['_trackEvent', "suning", "suningOut"]);
 									   console.log("out");
 									   window.location.href = "expire.html"
 									//  document.getElementById("expire").style.display = "block" ;
                         		}else if(data.result_code==4314){
                         			//  document.getElementById("wrong").style.display = "block" ;
-									   console.log("wrong c360hb");
+									   console.log("wrong suning");
 								}else if(data.result_code==4316){
-								         _hmt.push(['_trackEvent', "c360hb", "c360hbOldGuy"]);
+								         _hmt.push(['_trackEvent', "suning", "suningOldGuy"]);
                                          console.log("old");
 									     window.location.href = "old.html";
                         		}else{
 									  // console.log(data.result_code);
 									  // console.log(data);
-								       _hmt.push(['_trackEvent', "c360hb", "c360hbNetworkFail"]);
+								       _hmt.push(['_trackEvent', "suning", "suningNetworkFail"]);
 									   window.location.href = "lose.html";
                         			//	document.getElementById("networkFail").style.display = "block" ;
                         		}  
