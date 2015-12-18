@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+	<META HTTP-EQUIV="Pragma" CONTENT="no-cache"> 
+    <META HTTP-EQUIV="Cache-Control" CONTENT="no-cache"> 
+    <META HTTP-EQUIV="Expires" CONTENT="0"> 
+    <title></title>
+	<link href="css/style.css" rel="stylesheet">
+	<script type="text/javascript" src="js/sta.js"></script>
+</head>
+<body>
+
+<div class="mainContent">
+    <div id="topBanner">
+	  <img id="logo" src="img/logo.png"/>
+      <img src="img/title_1.png"/>
+    </div>
+	<div class="centralContent">
+      <img id="redImg" src="img/redPack.png"/>
+	  <div class="operateFields">
+	       <input id="q4" type="tel" placeholder="请输入手机号" name="suning"  maxlength=11/>
+		   <span style="display : block ; text-align : center ; position : relative ; color : white ; font-size : 0.8em ;"></span>
+		   <div class="showText">
+	         <p>试试手气，1～188元触宝电话话费红包随机抽！</p>
+	      </div>
+		  <div id="openBtn" class="openBtn linear">
+	        <p>打开红包</p>
+	      </div>
+	  </div>
+	
+	  <div id="middleBanner">
+	     <img id="bannerImg" src="img/redHowNormal.png"/>
+	     
+	  </div>
+  </div>
+  <div class="rule">
+    <div class="line left"></div>
+    <p>活动规则</p>
+	<div class="line right"></div>
+	<div class="clear"></div>
+	<div class="ruleText">
+	    <p>1、话费红包将兑换成等值免费通话时长放入对应手机号的触宝账户</p>
+	    <p>2、领取奖励后，手机安装触宝电话App并注册，即可<span style="color:red;">免费拨打全国手机座机</span></p>
+	    <p>3、本次活动由《探秘者》制片方与触宝电话合作，同一个手机号仅可参与一次，<span style="color:red;">>红包当月有效，请尽快使用</span></p>
+    </div>
+</div>
+  
+<div class="footer">
+    <p>触宝电话［生活黄页］购票全国最低价，即可起在触宝电话购买《探秘者》电影票，更有机会获得《探秘者》限量珍藏礼盒，数量有限，先到先得！</p>
+</div>
+</div>
+
+</body>
+<script type="text/javascript" src="js/zepto.min.js"></script>
+		<script type="text/javascript" src="js/json2.js"></script>
+		<script type="text/javascript" src="js/verify.js"></script>
+		<script type="text/javascript" src="js/stois.js"></script>
+<script>
+var bonus_id = "nlghijklmnofg_2_113";
+var sign = "a544710ac28c807a3d553600f7fef61c";
+window.onload = function(){
+     _hmt.push(['_trackEvent', "suning", "suningIn"]);	
+	 validate.phone("#q4", "手机号码格式不正确");
+	 $('#q4').val("");
+     $("openBtn").focus(function(){this.blur()});
+	 
+	$('#openBtn').on('tap', function(){
+		$('#openBtn').addClass('active');
+		setTimeout( function(){
+			
+			$('#openBtn').removeClass('active');
+		//	window.location.href = "gain.html";
+		}, 100)
+		
+		
+	});
+	$('#middleBanner').on('tap',function(){
+		var src = $('#bannerImg')[0].src;
+		$("#bannerImg").attr('src','img/redHowClick.png'); 
+		setTimeout( function(){
+			
+			$('#bannerImg').attr('src',src); 
+			
+		}, 100)
+	});
+		
+		$('#openBtn').on('click' , function(){
+			
+			if( $('#q4').hasClass("pass") ){
+			  _hmt.push(['_trackEvent', "suning", "suningClickGetButton"]);	
+			   var tmp =   $('#q4').val() ;
+			  
+			  $.ajax({
+               // url: 'http://121.52.235.231:40401/voip/get_bonus', //for test
+			   url: 'http://ws2.cootekservice.com/voip/get_bonus',
+                type: 'post',
+                data: '{"bonus_id":"'+bonus_id+'","sign":"'+sign+'","phone":"'+$('#q4').val()+'"}',
+                dataType: 'json',
+                success: function (data) {
+				    var me =  JSON.stringify(data);
+					 console.log(me);
+				    $('#q4').val("");	
+                    if(data.result_code==2000){
+					    var bonus = parseInt(data.result.bonus / 0.2) ;
+					   _hmt.push(['_trackEvent', "suning", "suningGain"]);
+					    var judgeUrl =  'http://ws2.cootekservice.com/voip/bonus_register';
+			  
+					
+					    $.get(judgeUrl,{phone: tmp}, function(result){
+					 
+							if(result.result.status == 1 ){
+								window.location.href = "gain.html?phone="+tmp+'&bonus='+(bonus+500);
+							}
+							else if(result.result.status == 0 ){
+								window.location.href = "gain.html?phone="+tmp+'&bonus='+(bonus);
+							}
+							else{
+							  
+							}
+							
+					});
+                     //   window.location.href = "gain.html?phone="+tmp;
+                    }else{
+                        if(data.result_code==4312){
+						        _hmt.push(['_trackEvent', "suning", "suningLose"]);
+								 console.log("already");
+								 window.location.href = "already.html";
+                        	//	document.getElementById("lose").style.display = "block" ;
+                        }else{
+                        		if (data.result_code==4313){
+								      _hmt.push(['_trackEvent', "suning", "suningOut"]);
+									   console.log("out");
+									   window.location.href = "expire.html"
+									//  document.getElementById("expire").style.display = "block" ;
+                        		}else if(data.result_code==4314){
+                        			//  document.getElementById("wrong").style.display = "block" ;
+									   console.log("wrong suning");
+								}else if(data.result_code==4316){
+								         _hmt.push(['_trackEvent', "suning", "suningOldGuy"]);
+                                         console.log("old");
+									     window.location.href = "old.html";
+                        		}else{
+									  // console.log(data.result_code);
+									  // console.log(data);
+								       _hmt.push(['_trackEvent', "suning", "suningNetworkFail"]);
+									   window.location.href = "lose.html";
+                        			//	document.getElementById("networkFail").style.display = "block" ;
+                        		}  
+                        }
+                    }
+                }
+				
+            })
+			}
+			
+			$('#q4').removeClass("pass");
+		   
+		});
+	
+}
+
+
+</script>
+</html>
