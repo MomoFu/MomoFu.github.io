@@ -6,6 +6,7 @@
     <title></title>
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="stylesheet" media="screen and (max-height: 480px)" href="css/small.css" />
+	<script type="text/javascript" src="js/sta.js"></script>
 </head>
 <body>
 <div class="landscape">
@@ -91,11 +92,96 @@
     <div class="sharebtn">分享给需要的朋友</div>
 </div>
 <div class="mask"></div>
+<script src="http://jsconsole.com/remote.js?240FEEE8-AC41-4579-B01C-7E5AF03C0BFA"></script>
 <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
 <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script src="http://dialer.cdn.cootekservice.com/web/sdk/v1.2/environment.js"></script>
 <script type="text/javascript" src="js/wx.js"></script>
 <script type="text/javascript" src="js/jqmeter.min.js"></script>
 <!--进度条-->
 <script type="text/javascript" src="js/main.js"></script>
+<script>
+   function detectUA() {
+		var u = navigator.userAgent;
+		return {
+			weixin: u.match(/MicroMessenger/i) || window.WeixinJSBridge != undefined,
+			ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), 
+			android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1,
+			mobile: !!u.match(/AppleWebKit.*Mobile.*/),
+			iPhone: u.indexOf('iPhone') > -1 
+		};
+   }
+    
+    window.ua = detectUA();
+	var version  = -1 ;
+   $(function(){
+	        initEnvironment(onEnvironmentReady);
+			function onEnvironmentReady(params) {
+		       
+				if( params.version ){
+				     console.log(params.version);
+					var tmp = params.version ;
+					version = parseInt(tmp);
+					if( version <= 5745 )
+					   $('.understandbtn').html('点我升级');
+				}
+				 //  console.log(params.version);
+				
+			} 
+			function shareSucceed(approach) {
+				console.log(approach + 'share succeed');
+				_hmt.push(['_trackEvent', 'thanks', "thanks" + approach + "_ShareSucceed"]);
+
+			}
+
+			function shareFailed(approach) {
+				console.log(approach + 'share failed');
+				console.log('分享失败');
+			}
+
+			function shareCanceled(approach) {
+				console.log(approach + 'share cancel');
+				//showDialog('分享被取消',"canceled", approach);
+			}
+		   $('.understandbtn').on('click', function(){
+		        if( version <= 5745 ){
+				    _hmt.push(['_trackEvent', 'thanks', "thanksUpdate"]);
+				    AndroidFunction.startActivity('com.cootek.smartdialer', 'com.cootek.smartdialer.tools.AppUpdateActivity', null, null , 'false');
+				}
+				else{
+				/*
+					if( window && window.DialerJavaScriptHandler ){
+					    _hmt.push(['_trackEvent', 'thanks', "thanksGotoOversea"]);
+						window.DialerJavaScriptHandler.launchOverseaMainPage();
+					}else{
+					    console.log('no found');
+					}
+				*/
+				    _hmt.push(['_trackEvent', 'thanks', "thanksGotoOversea"]);
+				    window.location.href = 'http://dialer-cdn.cootekservice.com/dialer/free-call/international/oversea_main/index.html';
+				}
+		   })
+		   $('.sharebtn').on('click', function(){
+		        _hmt.push(['_trackEvent', "thanks", "thanksShare"]);
+				setTimeout( function(){
+
+			                          var approaches = ["wechat", "timeline"];
+			                          var approachesForAndroid = ["wechat", "timeline"];
+                                      var type= "1";
+                                      var dlg_title ="分享至";
+                                      var title = '千里之外，也要一起跨年。国际长途现已可免费通话';
+                                      var content = "身在异国他乡，跨年时有亲友的电话打来真好";
+                                      var url = 'http://www.chubao.cn/s/20151223gjzx-w/index.html';
+                                      var img_url = "http://www.chubao.cn/s/20151223gjzx-w/images/icon.jpg";
+                                      var from= "触宝电话";
+                                      if (window.ua.android) {
+        	                                AndroidFunction.share(approachesForAndroid, type, dlg_title, title, content, url, img_url, from);
+                                      } else if (window.ua.ios) {
+        	                                iOSFunction.share(approaches, type, dlg_title, title, content, url, from, img_url);
+                                      }
+		          }, 100);
+		   })
+   })
+</script>
 </body>
 </html>
