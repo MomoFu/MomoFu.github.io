@@ -1,6 +1,8 @@
 /**
  * Created by neo on 15/12/23.
  */
+ 
+ 
 $(function () {
 
     _hmt.push(['_trackEvent', "gjzxD", "gjzxDOpen"]);
@@ -16,13 +18,26 @@ $(function () {
     var onPlay = true ;
     function playSound()
     {
-        instance.play();
+        var node=document.getElementById('audio');
+         if(node!=null)
+        {
+            node.play();
+        }
     }
     function pauseSound()
     {
-        instance.paused = true ;
+        var node=document.getElementById('audio');
+         if(node!=null)
+        {
+            node.pause();
+        }
     }
-   // playSound();
+	
+    playSound();
+
+
+
+    
     $('.music-box').on('click', function(){
         _hmt.push(['_trackEvent', "gjzxD", "gjzxDmusicClick"]);
         console.log('click');
