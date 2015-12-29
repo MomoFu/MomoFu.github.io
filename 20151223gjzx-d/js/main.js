@@ -13,21 +13,13 @@ $(function () {
     var onPlay = true ;
     function playSound()
     {
-        var node=document.getElementById('audio');
-        if(node!=null)
-        {
-            node.play();
-        }
+        instance.play();
     }
     function pauseSound()
     {
-        var node=document.getElementById('audio');
-        if(node!=null)
-        {
-            node.pause();
-        }
+        instance.paused = true ;
     }
-    playSound();
+   // playSound();
     $('.music-box').on('click', function(){
         console.log('click');
         console.log(onPlay);

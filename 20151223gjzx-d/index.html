@@ -2,11 +2,20 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport"/>
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"/>
     <title></title>
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="stylesheet" media="screen and (max-height: 480px)" href="css/small.css" />
 	<script type="text/javascript" src="js/sta.js"></script>
+	<script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
+    <script>
+	    var instance;
+        createjs.Sound.addEventListener("fileload", handleLoadComplete);
+		createjs.Sound.registerSound({src:"music/music.mp3", id:"music"});
+		function handleLoadComplete(event) {
+			instance = createjs.Sound.play("music");
+		}
+    </script>
 </head>
 <body>
 <div class="landscape">
@@ -14,7 +23,7 @@
     </div>
     <div class="iphone_text">为了更好体验，请使用竖屏浏览</div>
 </div>
-<audio src="music/music.mp3" id="audio" preload="load" loop="loop" controls="controls" class="music-show"></audio>
+<!--audio src="music/music.mp3" id="audio" preload="load" loop="loop" controls="controls" class="music-show"></audio-->
 <div class="music-box active">
     <img src="images/music.png">
 </div>
@@ -92,7 +101,6 @@
     <div class="sharebtn">分享给需要的朋友</div>
 </div>
 <div class="mask"></div>
-<script src="http://jsconsole.com/remote.js?240FEEE8-AC41-4579-B01C-7E5AF03C0BFA"></script>
 <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
 <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 <script src="http://dialer.cdn.cootekservice.com/web/sdk/v1.2/environment.js"></script>
@@ -115,6 +123,7 @@
     window.ua = detectUA();
 	var version  = -1 ;
    $(function(){
+            
 	        initEnvironment(onEnvironmentReady);
 			function onEnvironmentReady(params) {
 		       
