@@ -2,11 +2,19 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"/>
-    <title></title>
+ <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"/>
+    <title>千里之外，陪你跨年</title>
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="stylesheet" media="screen and (max-height: 480px)" href="css/small.css" />
-	<script type="text/javascript" src="js/sta.js"></script>
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?176611d742fc32fed60e6914c3452378";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+	</script>
 	<script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
     <script>
 	    var instance;
@@ -15,6 +23,8 @@
 		function handleLoadComplete(event) {
 			instance = createjs.Sound.play("music");
 		}
+
+   
     </script>
 </head>
 <body>
@@ -23,7 +33,9 @@
     </div>
     <div class="iphone_text">为了更好体验，请使用竖屏浏览</div>
 </div>
+
 <!--audio src="music/music.mp3" id="audio" preload="load" loop="loop" controls="controls" class="music-show"></audio-->
+
 <div class="music-box active">
     <img src="images/music.png">
 </div>
@@ -104,7 +116,6 @@
 <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
 <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 <script src="http://dialer.cdn.cootekservice.com/web/sdk/v1.2/environment.js"></script>
-<script type="text/javascript" src="js/wx.js"></script>
 <script type="text/javascript" src="js/jqmeter.min.js"></script>
 <!--进度条-->
 <script type="text/javascript" src="js/main.js"></script>
@@ -139,7 +150,7 @@
 			} 
 			function shareSucceed(approach) {
 				console.log(approach + 'share succeed');
-				_hmt.push(['_trackEvent', 'thanks', "thanks" + approach + "_ShareSucceed"]);
+				_hmt.push(['_trackEvent', 'gjzxD', "gjzxD" + approach + "_ShareSucceed"]);
 
 			}
 
@@ -154,7 +165,7 @@
 			}
 		   $('.understandbtn').on('click', function(){
 		        if( version <= 5745 ){
-				    _hmt.push(['_trackEvent', 'thanks', "thanksUpdate"]);
+				    _hmt.push(['_trackEvent', 'gjzxD', "gjzxDUpdate"]);
 				    AndroidFunction.startActivity('com.cootek.smartdialer', 'com.cootek.smartdialer.tools.AppUpdateActivity', null, null , 'false');
 				}
 				else{
@@ -166,12 +177,12 @@
 					    console.log('no found');
 					}
 				*/
-				    _hmt.push(['_trackEvent', 'thanks', "thanksGotoOversea"]);
+				    _hmt.push(['_trackEvent', 'gjzxD', "thanksGotoOversea"]);
 				    window.location.href = 'http://dialer-cdn.cootekservice.com/dialer/free-call/international/oversea_main/index.html';
 				}
 		   })
 		   $('.sharebtn').on('click', function(){
-		        _hmt.push(['_trackEvent', "thanks", "thanksShare"]);
+		        _hmt.push(['_trackEvent', "gjzxD", "gjzxDShare"]);
 				setTimeout( function(){
 
 			                          var approaches = ["wechat", "timeline"];
