@@ -15,8 +15,7 @@
             s.parentNode.insertBefore(hm, s);
         })();
 	</script>
-	
-	<script src="http://jsconsole.com/remote.js?19D8C8C5-6283-447D-BE98-A1EC4BAAA26B"></script>
+
     <!--script>
 	    var instance;
         createjs.Sound.addEventListener("fileload", handleLoadComplete);
@@ -36,7 +35,11 @@
     <div class="iphone_text">为了更好体验，请使用竖屏浏览</div>
 </div>
 
-<audio src="music/music.wav" id="audio" autoplay="autoplay" preload="load" loop="loop" controls="controls" class="music-show"></audio>
+<audio id="audio" autoplay="autoplay" preload="load" loop="loop" controls="controls" class="music-show">
+   <source src="music/music.ogg" type="audio/ogg" />
+   <source src="music/music.mp3" type="audio/mp3" />
+   <source src="music/music.wav" type="audio/wav" />
+</audio>
 
 <div class="music-box active">
     <img src="images/music.png">
