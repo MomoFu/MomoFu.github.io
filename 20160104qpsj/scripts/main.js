@@ -1,10 +1,5 @@
 $(document).ready(function () {
     //分屏滑动
-    $('.main').fullpage({
-        normalScrollElements: '.page'
-    });
-
-
     //延迟加载
     $("img.lazy").lazyload();
 
@@ -110,6 +105,24 @@ $(document).ready(function () {
     setTimeout(function () {
         $('.loading').hide();
         $('.page2').show();
+		var tmp = $('.p2_load').size();
+		console.log(tmp);
+		for( var i = 0 ; i < tmp ; i++ ){
+			var image = new Image();
+			image.onload = function(){
+				var me = i ;
+				return function(){
+					console.log(me);
+				     $('.p2_load')[me].setAttribute('src', $('.p2_load')[me].getAttribute('data'));
+				}
+			}(i);
+			console.log(i);
+			var me = $('.p2_load')[i];
+			console.log(me);
+			console.log(me.getAttribute('data'));
+			image.src = me.getAttribute('data');
+		}
+		
         $(".p2_arrow,.p2_bg").lazyload();
 		if(onPlay)
 			playSound1();
@@ -152,6 +165,9 @@ $(document).ready(function () {
     });
     $('.page6_2').click(function () {
 		step1 = false ;
+		$('.main').fullpage({
+			normalScrollElements: '.page'
+		});
         $('.page6').hide();
         $('.main').show();
         $('.music_img').attr("src", "images/music_black.png");
