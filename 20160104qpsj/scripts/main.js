@@ -109,7 +109,8 @@ $(document).ready(function () {
         $('.loading').hide();
         $('.page2').show();
         $(".p2_arrow,.p2_bg").lazyload();
-        playSound1();
+		if(onPlay)
+			playSound1();
     }, 3000);
     setTimeout(function () {
         $('.page2').hide();
