@@ -1,0 +1,64 @@
+.page2 .p2_arrow {
+  width: 80%;
+  left: 10%;
+}
+.page3 .p3_bg {
+  width: 80%;
+  left: 10%;
+}
+.page4 .p4_bg {
+  width: 80%;
+  left: 10%;
+}
+.page8 .p8_1 {
+  width: 46%;
+  left: 26%;
+  bottom: 2%;
+}
+.page9 .p9_1 {
+  width: 70%;
+  left: 13%;
+  bottom: -3%;
+}
+.page9 .p9_2 {
+  width: 25%;
+  bottom: 40%;
+}
+.page10 .p10_1 {
+  width: 80%;
+}
+.page11 .page11_wrap .p11_bg {
+  margin-top: -5%;
+}
+.page12 .p12_1 {
+  width: 62%;
+  bottom: 13%;
+}
+.page12 .p12_2 {
+  width: 80%;
+}
+.page12 .p12_dialog1 {
+  width: 24%;
+  right: 25%;
+}
+.page12 .p12_dialog2 {
+  width: 15%;
+  right: 42%;
+}
+.page12 .p12_text1 {
+  width: 55%;
+  left: 25%;
+}
+.page12 .p12_text2 {
+  width: 78%;
+  top: 11%;
+  left: 11%;
+}
+.page13 .p13_box {
+  width: 70%;
+  left: 15%;
+  top: 30%;
+}
+.page13 .p13_button {
+  bottom: 5%;
+}
