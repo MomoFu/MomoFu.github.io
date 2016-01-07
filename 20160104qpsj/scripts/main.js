@@ -1,6 +1,8 @@
 $(document).ready(function () {
     //分屏滑动
-    $('.main').fullpage();
+    $('.main').fullpage({
+        normalScrollElements: '.page'
+    });
 
 
     //延迟加载
@@ -117,7 +119,7 @@ $(document).ready(function () {
         $('.page3').show();
         $(".p3_dialogbox,.p3_bg").lazyload();
         pauseSound1();
-    }, 6500);
+    }, 5500);
     $('.p3_button').click(function () {
         $('.page3').hide();
         $('.page4').show();
