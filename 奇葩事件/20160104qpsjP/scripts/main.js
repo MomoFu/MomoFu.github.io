@@ -1,3 +1,4 @@
+var onPlay = true;
 $(document).ready(function () {
     _hmt.push(['_trackEvent', "qpsjP", "qpsjPOpen"]);
 
@@ -13,7 +14,7 @@ $(document).ready(function () {
     });
 
     //music
-    var onPlay = true;
+   //var onPlay = true;
     var step1 = true ;
     function playSound1() {
         var node = document.getElementById('audio1');
