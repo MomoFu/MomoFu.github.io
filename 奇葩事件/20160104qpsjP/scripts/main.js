@@ -1,21 +1,5 @@
 var onPlay = true;
-$(document).ready(function () {
-    _hmt.push(['_trackEvent', "qpsjP", "qpsjPOpen"]);
-
-    //进度条
-    $('#jqmeter-container').jQMeter({
-        goal: '5000',
-        raised: '5000',
-        width: '100%',
-        height: '30px',
-        animationSpeed: 3000,
-        counterSpeed: 3000,
-        barColor: '#48b4da'
-    });
-
-    //music
-   //var onPlay = true;
-    var step1 = true ;
+var step1 = true ;
     function playSound1() {
         var node = document.getElementById('audio1');
         if (node != null) {
@@ -72,6 +56,79 @@ $(document).ready(function () {
         }
     }
 
+$(document).ready(function () {
+    _hmt.push(['_trackEvent', "qpsjP", "qpsjPOpen"]);
+
+    //进度条
+    $('#jqmeter-container').jQMeter({
+        goal: '5000',
+        raised: '5000',
+        width: '100%',
+        height: '30px',
+        animationSpeed: 3000,
+        counterSpeed: 3000,
+        barColor: '#48b4da'
+    });
+
+    //music
+   /*var onPlay = true;
+    var step1 = true ;
+    function playSound1() {
+        var node = document.getElementById('audio1');
+        if (node != null) {
+            node.play();
+        }
+    }
+
+    function pauseSound1() {
+        var node = document.getElementById('audio1');   //脚步
+        if (node != null) {
+            node.pause();
+        }
+    }
+
+    function playSound2() {
+        var node = document.getElementById('audio2');     //碎玻璃
+        if (node != null) {
+            node.play();
+        }
+    }
+
+    function pauseSound2() {
+        var node = document.getElementById('audio2');
+        if (node != null) {
+            node.pause();
+        }
+    }
+
+    function playSound3() {
+        var node = document.getElementById('audio3');     //最后
+        if (node != null) {
+            node.play();
+        }
+    }
+
+    function pauseSound3() {
+        var node = document.getElementById('audio3');
+        if (node != null) {
+            node.pause();
+        }
+    }
+
+    function playSound4() {
+        var node = document.getElementById('audio4');    //背景
+        if (node != null) {
+            node.play();
+        }
+    }
+
+    function pauseSound4() {
+        var node = document.getElementById('audio4');
+        if (node != null) {
+            node.pause();
+        }
+    }
+*/
     //playSound4();
     $('.music-box').on('click', function () {
         _hmt.push(['_trackEvent', "qpsjP", "qpsjPmusicClick"]);
