@@ -174,8 +174,16 @@
 	        initEnvironment(onEnvironmentReady);
 			function onEnvironmentReady(params) {
 		        console.log("test");
-				if( params.token )
+				if( params.token ){
 					inapp = true ;
+					if(ua.ios){
+						$('.music-box').css('display', 'none');
+						onPlay = false ;
+					}
+					else{
+						playSound4();
+					}
+				}
 				if(inapp){
 					
 				}

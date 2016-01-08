@@ -71,7 +71,7 @@ $(document).ready(function () {
         }
     }
 
-    playSound4();
+    //playSound4();
     $('.music-box').on('click', function () {
         _hmt.push(['_trackEvent', "qpsjP", "qpsjPmusicClick"]);
         console.log('click');
