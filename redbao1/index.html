@@ -58,8 +58,8 @@
 		<script type="text/javascript" src="js/verify.js"></script>
 		<script type="text/javascript" src="js/stois.js"></script>
 <script>
-var bonus_id = "nlghijklmnofg_2_97";
-var sign = "f5f50f28f0505b6321427e5b81dc5813";
+var bonus_id = "nlghijklmnofg_2_125";
+var sign = "cc18c68890230f06841ef40602d47b55";
 window.onload = function(){
      _hmt.push(['_trackEvent', "c360hb", "c360hbIn"]);	
 	 validate.phone("#q4", "手机号码格式不正确");
@@ -103,7 +103,22 @@ window.onload = function(){
                     if(data.result_code==2000){
 					   _hmt.push(['_trackEvent', "c360hb", "c360hbGain"]);
 					   console.log("gain");
-                        window.location.href = "gain.html?phone="+tmp;
+					    var bonus = parseInt(data.result.bonus / 0.2) ;
+                        var judgeUrl =  'http://ws2.cootekservice.com/voip/bonus_register';
+
+					    $.get(judgeUrl,{phone: tmp}, function(result){
+					 
+							if(result.result.status == 1 ){
+								window.location.href = "gain.html?phone="+tmp+'&bonus='+(bonus+500);
+							}
+							else if(result.result.status == 0 ){
+								window.location.href = "gain.html?phone="+tmp+'&bonus='+(bonus);
+							}
+							else{
+							  
+							}
+							
+					});
                     }else{
                         if(data.result_code==4312){
 						        _hmt.push(['_trackEvent', "c360hb", "c360hbLose"]);
