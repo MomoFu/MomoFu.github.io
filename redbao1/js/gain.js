@@ -79,7 +79,7 @@
 			$('#openBtn').removeClass('active');
 			
 
-		    window.location.href = "http://dialer.cdn.cootekservice.com/web/external/laststep/index.html?code=mkt_xiaoya_camera360_20151020";
+		    window.location.href = "http://dialer.cdn.cootekservice.com/web/external/laststep/index.html?code=01F015";
 		}, 100)
 		
 		
