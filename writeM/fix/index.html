@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+	<META HTTP-EQUIV="Pragma" CONTENT="no-cache"> 
+    <META HTTP-EQUIV="Cache-Control" CONTENT="no-cache"> 
+    <META HTTP-EQUIV="Expires" CONTENT="0"> 
+    <title>见字如见人</title>
+	<link href="css/reset.css" rel="stylesheet">
+	<script>
+		var _hmt = _hmt || [];
+		(function() {
+		  var hm = document.createElement("script");
+		  hm.src = "//hm.baidu.com/hm.js?f6200b3f84a33687e8caa711f5772fb8";
+		  var s = document.getElementsByTagName("script")[0]; 
+		  s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+	 <!-- Link Swiper's CSS -->
+     <style>
+       html,body{width: 100% ; height : auto;}
+       img{display: block; width : 100% ;}
+	  .frontPage{
+			position : relative ; margin: auto ; margin-top : 40px ;width : 90% ;
+	   }
+	   .frontPage > p{
+			font-size : 18px ;
+			text-align: left ;
+			margin-left : 2.5%;
+			line-height: 32px;
+	   }
+	   #name{
+			font-size : 22px ;
+			color : #009edb;
+	   }
+	   .showContainer{
+		  position : relative ;
+		  margin-top : 20px ;
+		  width : 100% ;
+	   }
+	   .imageContainer{
+	      position : relative ;
+		  float : left ;
+		  margin-top : 8px ;
+		  width : 50% ;
+	   }
+	   .imageContainer>img{
+			width : 90%;
+			margin : auto ;
+			
+	   }
+	   .imageContainer > .chooseContainer{
+			position : absolute ;
+			right : 0 ;
+			bottom : 0 ;
+			width : 40px ;
+	   }
+	   .clear{
+			clear : both ;
+	   }
+	   .buttonWrapper{
+		   width : 100% ;
+		   background-color : #009edb;
+		   padding-top: 20px ;
+		   padding-bottom : 20px ;
+	   }
+	   
+	   .buttonContainer{
+		  position: relative ;
+		  width : 160px ;
+		  margin : auto ;
+		  margin-top : 20px ;
+		  background-image:url(http://zhcn.web.cdn.cootekservice.com/s/writeM/images/_but.png);
+		  background-size : 100% auto ;
+		  background-repeat: no-repeat;
+	   }
+	   .buttonWrapper .buttonContainer{
+			margin-top : 0px ;
+	   }
+	   .okay{
+		  position : relative ;
+		  line-height : 44px ;
+		  font-size : 18px ;
+		  text-align: center ;
+		  color: red ;
+		  
+	   }
+	   
+	   .rightContainer , .wrongContainer{
+		  position : absolute ;
+		  top : 0 ;
+		  left : 0 ;
+		  width : 100% ;
+		  height : 100% ;
+		  background-color:white ;
+		  display : none;
+	   }
+	   
+	   .rightContainer{
+			z-index : 2 ;
+	   }
+	   
+	   .wrongContainer{
+			z-index : 3 ;
+	   }
+	   
+	   .rightContainer .bannerContainer,.wrongContainer .bannerContainer{
+			position : relative ;
+			width : 100% ;
+			margin: auto ;
+	   }
+	   
+	   .rightContainer .bannerContainer .wordsContainer,.wrongContainer .bannerContainer .wordsContainer{
+			position: absolute ;
+			top : 54% ;
+			left : 42% ;
+			width : 56% ;
+	   }
+	   
+	   .rightContainer .bannerContainer .wordsContainer p,.wrongContainer .bannerContainer .wordsContainer p{
+			font-size: 14px ;
+			color : white ;
+			line-height: 28px ;
+	   }
+	   
+	   .contentContainer{
+			margin-top  : 24px ;
+			width : 100% ;
+	   }
+	   
+	   #more{
+		position: relative;
+    /* margin-top: 50px; */
+    width: 40%;
+    margin: auto;
+    margin-top: 10px;
+	   }
+	   .contentContainer > p{
+			font-size: 16px ;
+			line-height: 32px ;
+			text-align: center ;
+			color : black ;
+	   }
+	   .qrContainer{
+			position : relative ;
+			margin-top : 24px ;
+			width : 40% ;
+			margin : auto ;
+	   }
+	   #alert{
+			display: none;
+			text-align: center;
+			color: red;
+			margin-top: 10px;
+	   }
+	   
+	   .adContainer{
+	       position : relative ;
+		   margin-top:120px ;
+		   width : 100% ;
+		   height :100% ;
+	       -webkit-overflow-scrolling: touch;  
+           overflow-y: scroll;  
+	   }
+	   
+	  .adContainer iframe {  
+			height: 100%;  
+			width: 100%;  
+		}
+	 
+   </style>
+</head>
+<body>
+	<div class="frontPage">
+		<p>你认为，</p><p>下面哪个字是<span class="name" id="name">我</span>写的?</p>
+		
+		<div id="showContainer" class="showContainer">
+			<div class="clear"></div>
+		</div>
+		    <div id="alert">亲你得选一个啊</div>
+			<div id="buttonContainer" class="buttonContainer">
+				<!--img src="images/_but.png"/-->
+				<p class="okay" id="okay">选好了</p>
+			</div>
+		
+		
+	</div>
+	
+	<div class="rightContainer">
+		<div class="bannerContainer">
+			<img src="http://zhcn.web.cdn.cootekservice.com/s/writeM/images/p2-right.jpg" alt=""/>
+			<div class="wordsContainer">
+				<p>你和<span class="name" id="name1">我</span>真是感情深厚，一眼就能认出<span class="sex">他</span>的字！</p>
+			</div>
+		</div>
+		<div class="buttonWrapper">
+			<div id="buttonWrite1" class="buttonContainer buttonWrite">
+					<!--img src="images/_but.png"/-->
+					<p class="okay">我也写一个</p>
+			</div>
+		</div>
+		<div class="contentContainer">
+			<p>更多游戏和<span style="color : red ;">免费福利</span></p>
+			<p>长按识别二维码查看</p>
+		</div>
+		<div class="qrContainer">
+			<img src="http://zhcn.web.cdn.cootekservice.com/s/writeM/images/erweima.jpg" alt="">
+		</div>
+	    <div id="more" class="contentContainer">
+			<img src="http://zhcn.web.cdn.cootekservice.com/s/writeM/images/logo.png">
+		</div>
+		<div class="adContainer">
+		     <iframe src="http://jump.luna.58.com/s?spm=m-25628932496135-ms-f-803&ch=fangchan_0128"></iframe>  
+		</div>
+	</div>
+	<div class="wrongContainer">
+		<div class="bannerContainer">
+			<img src="http://zhcn.web.cdn.cootekservice.com/s/writeM/images/p3-wrong.jpg" alt=""/>
+			<div class="wordsContainer">
+				<p>你和<span class="name" id="name2">我</span>的联系有待加强，差一点儿就能猜对啦！</p>
+			</div>
+			
+		</div>
+		<div class="buttonWrapper">
+			<div id="buttonWrite2" class="buttonContainer buttonWrite">
+					<!--img src="images/_but.png"/-->
+					<p class="okay">我也写一个</p>
+			</div>
+		</div>
+		<div class="contentContainer">
+			<p>更多游戏和<span style="color : red ;">免费福利</span></p>
+			<p>长按识别二维码查看</p>
+			
+		</div>
+		<div class="qrContainer">
+			<img src="http://zhcn.web.cdn.cootekservice.com/s/writeM/images/erweima.jpg" alt="">
+		</div>
+		<div id="more" class="contentContainer">
+			<img src="http://zhcn.web.cdn.cootekservice.com/s/writeM/images/logo.png">
+		</div>
+		<div class="adContainer">
+		     <iframe src="http://jump.luna.58.com/s?spm=m-25628932496135-ms-f-803&ch=fangchan_0128"></iframe>  
+		</div>
+		
+	</div>
+	
+
+    
+</body>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script type="text/javascript" src="http://cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+<script src="js/code.js"></script>
+<script src="js/wxPost.js?v=1"></script>
+
+<script>
+       _hmt.push(['_trackEvent', "guessWhat", "guessWhatInGuess"]);
+       var count = 0 , right = false , choosed = false;
+       var showC = document.getElementById('showContainer');
+	   var chooseC = document.createElement('div');
+	   chooseC.setAttribute('class', 'chooseContainer');
+	   var chooseI = document.createElement('img');
+	   chooseI.setAttribute('src', 'http://zhcn.web.cdn.cootekservice.com/s/writeM/images/p1-choose.png');
+	   chooseC.appendChild(chooseI);
+	   
+       function getParameterByName(name) {
+   			 		name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+    				var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+        		    results = regex.exec(location.search);
+    				return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+	   }
+	   var data = getParameterByName("u");
+	   if( data ){
+		   
+		   var user = JSON.parse(Base64.decode(data));
+	       var imgUrl = user.imgurl ;
+	       console.log(user);
+	       var nickName = user.nickname ;
+		   var headImg = user.headImg;
+		   console.log(headImg);
+		   var sex = user.sex ;
+		   if( sex == 1 )
+		      $('.sex').text('他');
+		   else
+		      $('.sex').text('她');
+		   $('.name').text(nickName);
+		   //document.getElementById('name').innerHTML = nickName;
+		   //document.getElementById('name1').innerHTML = nickName;
+		   var select = user.select ;
+		   console.log(select);
+		   var myL = parseInt(Math.random()*4);
+		   for( var i = 0 ; i< 4 ; i++ ){
+		       if( i == myL ){
+			       var img = new Image();
+				   img.onload = function(){
+				      // var me = i ;
+					   return function(){
+					       
+					       var u = document.createElement("div");
+						   u.setAttribute('class', 'imageContainer');
+						   var m = document.createElement("img");
+						   m.setAttribute('src', imgUrl);
+						   m.setAttribute('style', 'background-image:url(http://zhcn.web.cdn.cootekservice.com/s/writeM/images/fill.png);background-size:100% auto; background-repeat : no-repeat;');
+						   u.appendChild(m);
+						   showC.insertBefore(u,showC.childNodes[count++]);
+						   u.addEventListener('touchend', function(){
+						        _hmt.push(['_trackEvent', "guessWhat", "guessWhatClickRight"]);
+								console.log('t');
+								right = true ;
+								choosed = true;
+								document.getElementById('alert').style.display = "none";
+								this.appendChild(chooseC);
+						   });
+					      // $('.pic:eq('+me+')').attr('src', imgUrl);
+						  // $('.pic:eq('+me+')').css('backgroundColor', 'black');
+					   }
+					   //document.getElementById('result').appendChild(img);
+					   
+				   }(i);
+				   img.src = imgUrl;
+				   
+			   }
+			   else{
+			       var img = new Image();
+				   img.onload = function(){
+				       var me = i ;
+					   return function(){
+					       
+					       var u = document.createElement("div");
+						   u.setAttribute('class', 'imageContainer');
+						   var m = document.createElement("img");
+						   m.setAttribute('src', 'http://zhcn.web.cdn.cootekservice.com/s/writeM/images/'+select+(me+1)+".jpg");
+						   m.setAttribute('style', 'background-color:black;');
+						   u.appendChild(m);
+						   showC.insertBefore(u,showC.childNodes[count++]);
+						   u.addEventListener('touchend', function(){
+						        _hmt.push(['_trackEvent', "guessWhat", "guessWhatClickWrong"]);
+								console.log('t');
+								right = false;
+								choosed = true;
+								document.getElementById('alert').style.display = "none";
+								this.appendChild(chooseC);
+						   });
+					        //$('.pic:eq('+me+')').attr('src', 'images/'+select+(me+1)+".jpg" );
+					   }
+					  
+				   }(i);
+				   img.src = 'http://zhcn.web.cdn.cootekservice.com/s/writeM/images/'+select+(i+1)+".jpg";
+			       
+			   }
+		   }
+		   
+		   initWX(nickName,headImg,data);
+		   
+	   }
+	   
+	   document.getElementById('buttonContainer').addEventListener('touchend', function(){
+	         _hmt.push(['_trackEvent', "guessWhat", "guessWhatClickToResult"]);
+	        if( choosed == true ){
+				if( right ){
+					$('.rightContainer').css('display', 'block');
+				}
+				else
+					$('.wrongContainer').css('display', 'block');
+			}
+			else{
+			    $('#alert').css('display','block');
+			}
+	   })
+	   
+	   $('.buttonWrite').on('click', function(){
+			_hmt.push(['_trackEvent', "guessWhat", "guessWhatClickToPlay"]);
+			window.location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxc89be2c61eada014&redirect_uri=http%3A%2F%2Ftouchlife.cootekservice.com%2Fcallback%2Fwechat&response_type=code&scope=snsapi_base&state=0%231%23http%3A%2F%2Fmarketing1.chubao.cn%2FwriteM%2Findex.php#wechat_redirect" ;
+			
+	   })
+	   
+	   $('.qrContainer').on('click', function(){
+			_hmt.push(['_trackEvent', "guessWhat", "guessWhatClickToPlayGround"]);
+			//window.location.href = 'http://www.chubao.cn/s/eventhall/index.html?v=6';
+			
+	   })
+	   
+	   
+</script>
+</html>
